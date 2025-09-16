@@ -7,7 +7,7 @@ export function Logo(props: HTMLAttributes<HTMLDivElement>) {
     <div {...props}>
       <Image
         src="https://iili.io/KRCtUdv.md.jpg"
-        alt="SanataniShop Logo"
+        alt="Sanatani Shop Logo"
         width={50}
         height={50}
         className={cn('h-full w-full', props.className)}

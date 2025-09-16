@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'SanataniShop',
+  title: 'Sanatani Shop',
   description: 'Your one-stop shop for premium digital subscriptions.',
 };
 

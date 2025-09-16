@@ -6,7 +6,7 @@ export function Header() {
       <div className="container mx-auto flex items-center gap-4">
         <Logo className="h-16 w-16 text-primary" />
         <h1 className="text-4xl font-bold tracking-tight text-foreground font-headline">
-          SanataniShop
+          Sanatani Shop
         </h1>
       </div>
     </header>
