@@ -34,7 +34,7 @@ export default function Home() {
             <ProductCard
               name="ChatGPT Plus"
               description="6-Month Subscription"
-              price="$120.00"
+              price="₹2,499"
               imageUrl={chatGptImage.imageUrl}
               imageHint={chatGptImage.imageHint}
             />
