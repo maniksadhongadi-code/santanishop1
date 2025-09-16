@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "adobe-creative-cloud",
+      "description": "Adobe Creative Cloud 1-Year Subscription",
+      "imageUrl": "https://picsum.photos/seed/adobe/600/400",
+      "imageHint": "creative software"
+    },
+    {
+      "id": "chatgpt-plus",
+      "description": "ChatGPT Plus 6-Month Subscription",
+      "imageUrl": "https://picsum.photos/seed/chatgpt/600/400",
+      "imageHint": "AI chatbot"
+    }
+  ]
 }
