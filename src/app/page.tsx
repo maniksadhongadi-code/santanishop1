@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8 sm:py-16">
         <section className="text-center mb-12">
-          <h2 className="text-4xl font-bold font-headline tracking-tight text-primary sm:text-5xl">
+          <h2 className="text-4xl font-bold font-headline tracking-tight text-foreground sm:text-5xl">
             Premium Digital Subscriptions
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
