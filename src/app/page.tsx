@@ -25,7 +25,7 @@ export default function Home() {
             <ProductCard
               name="Adobe Creative Cloud"
               description="1-Year All Apps Subscription"
-              price="$599.99"
+              price="₹2,999"
               imageUrl={adobeImage.imageUrl}
               imageHint={adobeImage.imageHint}
             />
