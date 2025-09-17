@@ -34,7 +34,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useId } from 'react';
 import { useRouter } from 'next/navigation';
 import { saveOrder } from '@/app/actions/save-order';
 
@@ -59,27 +59,33 @@ type ProductCardProps = {
   className?: string;
 };
 
-// New component for the Razorpay Payment Button
-const RazorpayPaymentButton = () => {
+// Razorpay Payment Button component that accepts a button ID
+const RazorpayPaymentButton = ({ paymentButtonId }: { paymentButtonId: string }) => {
+  const formId = useId();
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
-    script.setAttribute('data-payment_button_id', 'pl_RIh1P3kydeqVf7');
+    script.setAttribute('data-payment_button_id', paymentButtonId);
     script.async = true;
 
-    const form = document.getElementById('razorpay-form');
+    const form = document.getElementById(formId);
     if (form) {
       form.appendChild(script);
     }
 
     return () => {
       if (form && script.parentNode === form) {
-        form.removeChild(script);
+        // Razorpay might remove the script itself, so check parentNode
+        try {
+          form.removeChild(script);
+        } catch (e) {
+          // Ignore if script is already gone
+        }
       }
     };
-  }, []);
+  }, [paymentButtonId, formId]);
 
-  return <form id="razorpay-form"></form>;
+  return <form id={formId}></form>;
 };
 
 
@@ -213,6 +219,7 @@ export function ProductCard({
   };
 
   const isAdobeProduct = name === 'Adobe Creative Cloud';
+  const isChatGptProduct = name === 'ChatGPT Plus';
 
   return (
     <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300', className)}>
@@ -234,7 +241,9 @@ export function ProductCard({
       <CardFooter className="p-6 pt-0 flex justify-between items-center">
         <p className="text-2xl font-bold text-foreground">{price}</p>
         {isAdobeProduct ? (
-          <RazorpayPaymentButton />
+          <RazorpayPaymentButton paymentButtonId="pl_RIh1P3kydeqVf7" />
+        ) : isChatGptProduct ? (
+          <RazorpayPaymentButton paymentButtonId="pl_RIh69PaaOtMDuj" />
         ) : (
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
