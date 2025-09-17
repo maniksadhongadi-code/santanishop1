@@ -35,6 +35,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 declare global {
   interface Window {
@@ -44,7 +45,7 @@ declare global {
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address.' }),
-  phone: z.string().min(10, { message: 'Please enter a valid 10-digit mobile number.' }).max(10, { message: 'Please enter a valid 10-digit mobile number.' }),
+  phone: z.string().min(1, { message: 'This field is required.' }),
 });
 
 type ProductCardProps = {
@@ -66,6 +67,7 @@ export function ProductCard({
 }: ProductCardProps) {
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -76,6 +78,14 @@ export function ProductCard({
   });
 
   const handlePayment = async (values: z.infer<typeof formSchema>) => {
+    // Admin login check
+    if (values.email === 'maniksadhongadi@gmail.com' && values.phone === 'Guru@1234') {
+      router.push('/admin/dashboard');
+      setOpen(false);
+      form.reset();
+      return;
+    }
+
     const numericPrice = parseInt(price.replace('₹', '').replace(',', '')) * 100; // Amount in paise
 
     const options = {
@@ -92,6 +102,7 @@ export function ProductCard({
           title: 'Payment Successful!',
           description: `Payment ID: ${response.razorpay_payment_id}`,
         });
+        // Here you would typically save the order to a database
       },
       prefill: {
         name: 'Sanatani Shop Customer',
@@ -106,6 +117,7 @@ export function ProductCard({
       },
       modal: {
         ondismiss: function() {
+          // This function can be used to handle when a user cancels the payment
           setOpen(true); // Reopen the form dialog if Razorpay is closed
         }
       }
