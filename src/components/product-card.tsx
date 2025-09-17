@@ -37,7 +37,6 @@ import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { saveOrder } from '@/app/actions/save-order';
-import Script from 'next/script';
 
 
 declare global {
@@ -189,30 +188,25 @@ export function ProductCard({
     rzp.open();
   };
   
-  const renderPaymentButton = () => {
-    if (name === 'Adobe Creative Cloud') {
-      return (
-        <form>
-          <Script
-            src="https://checkout.razorpay.com/v1/payment-button.js"
-            data-payment_button_id="pl_RIh1P3kydeqVf7"
-            async
+  return (
+    <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300', className)}>
+      <CardContent className="p-0">
+        <div className="relative w-full aspect-[3/2]">
+          <Image
+            src={imageUrl}
+            alt={name}
+            fill
+            className="object-cover"
+            data-ai-hint={imageHint}
           />
-        </form>
-      );
-    }
-    if (name === 'ChatGPT Plus') {
-      return (
-        <form>
-          <Script
-            src="https://checkout.razorpay.com/v1/payment-button.js"
-            data-payment_button_id="pl_RIh69PaaOtMDuj"
-            async
-          />
-        </form>
-      );
-    }
-    return (
+        </div>
+      </CardContent>
+      <CardHeader>
+        <CardTitle className="font-headline text-2xl">{name}</CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardHeader>
+      <CardFooter className="p-6 pt-0 flex justify-between items-center">
+        <p className="text-2xl font-bold text-foreground">{price}</p>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-2">
@@ -263,29 +257,6 @@ export function ProductCard({
             </Form>
           </DialogContent>
         </Dialog>
-    )
-  }
-
-  return (
-    <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300', className)}>
-      <CardContent className="p-0">
-        <div className="relative w-full aspect-[3/2]">
-          <Image
-            src={imageUrl}
-            alt={name}
-            fill
-            className="object-cover"
-            data-ai-hint={imageHint}
-          />
-        </div>
-      </CardContent>
-      <CardHeader>
-        <CardTitle className="font-headline text-2xl">{name}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardFooter className="p-6 pt-0 flex justify-between items-center">
-        <p className="text-2xl font-bold text-foreground">{price}</p>
-        {renderPaymentButton()}
       </CardFooter>
     </Card>
   );
