@@ -137,8 +137,18 @@ export function ProductCard({
         color: '#3399cc',
       },
       modal: {
-        ondismiss: function() {
-          setOpen(true);
+        ondismiss: async function() {
+          const orderData = {
+            customerEmail: values.email,
+            customerPhone: values.phone,
+            product: name,
+            price: price,
+            paymentId: 'N/A',
+            status: 'Cancelled' as const,
+          };
+          await saveOrder(orderData);
+          setOpen(false);
+          form.reset();
         }
       }
     };
@@ -153,12 +163,25 @@ export function ProductCard({
     }
 
     const rzp = new window.Razorpay(options);
-    rzp.on('payment.failed', function (response: any) {
+    rzp.on('payment.failed', async function (response: any) {
+      const orderData = {
+        customerEmail: values.email,
+        customerPhone: values.phone,
+        product: name,
+        price: price,
+        paymentId: response.error.metadata.payment_id || 'N/A',
+        status: 'Cancelled' as const,
+      };
+      await saveOrder(orderData);
+      
       toast({
         variant: 'destructive',
         title: 'Payment Failed',
         description: `Error: ${response.error.description}`,
       });
+
+      setOpen(false);
+      form.reset();
     });
     
     setOpen(false);
@@ -206,6 +229,7 @@ export function ProductCard({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Email Address</FormLabel>
+
                       <FormControl>
                         <Input placeholder="guru@gmail.com" {...field} />
                       </FormControl>
