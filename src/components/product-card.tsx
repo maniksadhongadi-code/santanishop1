@@ -211,6 +211,66 @@ export function ProductCard({
     rzp.open();
   };
   
+  const getPaymentButton = () => {
+    if (name === 'ChatGPT Plus') {
+      return <RazorpayButton paymentButtonId="pl_RIh69PaaOtMDuj" />;
+    }
+    if (name === 'Adobe Creative Cloud') {
+      return <RazorpayButton paymentButtonId="pl_RIh1P3kydeqVf7" />;
+    }
+    return (
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogTrigger asChild>
+          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-2">
+            <ShoppingCart className="mr-2 h-4 w-4" />
+            Buy Now
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Customer Information</DialogTitle>
+            <DialogDescription className="text-destructive text-sm font-medium">
+              Please only provide that Gmail ID in which you want to activate this software and provide the WhatsApp number through which we can contact you regarding order.
+            </DialogDescription>
+          </DialogHeader>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(handlePayment)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email Address</FormLabel>
+                    <FormControl>
+                      <Input placeholder="guru@gmail.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Mobile Number</FormLabel>
+                    <FormControl>
+                      <Input placeholder="9845634775" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <DialogFooter>
+                <Button type="submit">Proceed to Payment</Button>
+              </DialogFooter>
+            </form>
+          </Form>
+        </DialogContent>
+      </Dialog>
+    );
+  };
+
   return (
     <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300', className)}>
       <CardContent className="p-0">
@@ -231,60 +291,7 @@ export function ProductCard({
       </CardHeader>
       <CardFooter className="p-6 pt-0 flex justify-between items-center">
         <p className="text-2xl font-bold text-foreground">{price}</p>
-        {name === 'ChatGPT Plus' ? (
-           <RazorpayButton paymentButtonId="pl_RIh69PaaOtMDuj" />
-        ) : (
-          <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-2">
-                <ShoppingCart className="mr-2 h-4 w-4" />
-                Buy Now
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>Customer Information</DialogTitle>
-                <DialogDescription className="text-destructive text-sm font-medium">
-                  Please only provide that Gmail ID in which you want to activate this software and provide the WhatsApp number through which we can contact you regarding order.
-                </DialogDescription>
-              </DialogHeader>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(handlePayment)} className="space-y-4">
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-
-                        <FormControl>
-                          <Input placeholder="guru@gmail.com" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Mobile Number</FormLabel>
-                        <FormControl>
-                          <Input placeholder="9845634775" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <DialogFooter>
-                    <Button type="submit">Proceed to Payment</Button>
-                  </DialogFooter>
-                </form>
-              </Form>
-            </DialogContent>
-          </Dialog>
-        )}
+        {getPaymentButton()}
       </CardFooter>
     </Card>
   );
