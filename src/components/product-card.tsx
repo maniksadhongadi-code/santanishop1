@@ -175,7 +175,7 @@ export function ProductCard({
                     <FormItem>
                       <FormLabel>Email Address</FormLabel>
                       <FormControl>
-                        <Input placeholder="your.email@example.com" {...field} />
+                        <Input placeholder="guru@gmail.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -188,7 +188,7 @@ export function ProductCard({
                     <FormItem>
                       <FormLabel>Mobile Number</FormLabel>
                       <FormControl>
-                        <Input placeholder="9999999999" {...field} />
+                        <Input placeholder="9845634775" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
