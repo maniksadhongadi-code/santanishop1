@@ -34,7 +34,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { saveOrder } from '@/app/actions/save-order';
 
@@ -58,6 +58,29 @@ type ProductCardProps = {
   imageHint: string;
   className?: string;
 };
+
+const RazorpayButton = ({ paymentButtonId }: { paymentButtonId: string }) => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (formRef.current) {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
+      script.async = true;
+      script.dataset.payment_button_id = paymentButtonId;
+      
+      // Clear the form before appending new script to avoid duplicates
+      while (formRef.current.firstChild) {
+        formRef.current.removeChild(formRef.current.firstChild);
+      }
+      
+      formRef.current.appendChild(script);
+    }
+  }, [paymentButtonId]);
+
+  return <form ref={formRef}></form>;
+};
+
 
 export function ProductCard({
   name,
@@ -209,13 +232,7 @@ export function ProductCard({
       <CardFooter className="p-6 pt-0 flex justify-between items-center">
         <p className="text-2xl font-bold text-foreground">{price}</p>
         {name === 'ChatGPT Plus' ? (
-          <form>
-            <script
-              src="https://checkout.razorpay.com/v1/payment-button.js"
-              data-payment_button_id="pl_RIh69PaaOtMDuj"
-              async
-            ></script>
-          </form>
+           <RazorpayButton paymentButtonId="pl_RIh69PaaOtMDuj" />
         ) : (
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
