@@ -23,7 +23,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         {children}
-        <WhatsAppFab phoneNumber="1234567890" />
+        <WhatsAppFab phoneNumber="9845634775" />
         <Toaster />
         <Script id="razorpay-checkout-js" src="https://checkout.razorpay.com/v1/checkout.js" />
       </body>
