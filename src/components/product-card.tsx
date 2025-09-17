@@ -274,13 +274,12 @@ export function ProductCard({
   return (
     <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300', className)}>
       <CardContent className="p-0">
-        <div className="relative aspect-[3/2]">
+        <div className="relative w-full aspect-[3/2] bg-muted">
           <Image
             src={imageUrl}
             alt={name}
-            width={600}
-            height={400}
-            className="object-cover w-full h-full"
+            fill
+            className="object-contain w-full h-full"
             data-ai-hint={imageHint}
           />
         </div>
