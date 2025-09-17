@@ -36,6 +36,8 @@ import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { saveOrder } from '@/app/actions/save-order';
+
 
 declare global {
   interface Window {
@@ -95,14 +97,33 @@ export function ProductCard({
       name: 'Sanatani Shop',
       description: `Purchase: ${name}`,
       image: 'https://iili.io/KRCtUdv.md.jpg',
-      handler: function (response: any) {
+      handler: async function (response: any) {
         setOpen(false);
         form.reset();
-        toast({
-          title: 'Payment Successful!',
-          description: `Payment ID: ${response.razorpay_payment_id}`,
-        });
-        // Here you would typically save the order to a database
+        
+        const orderData = {
+          customerEmail: values.email,
+          customerPhone: values.phone,
+          product: name,
+          price: price,
+          paymentId: response.razorpay_payment_id,
+          status: 'Purchased' as const,
+        };
+
+        const result = await saveOrder(orderData);
+
+        if (result.success) {
+          toast({
+            title: 'Payment Successful!',
+            description: `Your order has been placed. Payment ID: ${response.razorpay_payment_id}`,
+          });
+        } else {
+           toast({
+            variant: 'destructive',
+            title: 'Order Failed',
+            description: 'Your payment was successful, but we failed to save your order. Please contact support.',
+          });
+        }
       },
       prefill: {
         name: 'Sanatani Shop Customer',
@@ -117,8 +138,7 @@ export function ProductCard({
       },
       modal: {
         ondismiss: function() {
-          // This function can be used to handle when a user cancels the payment
-          setOpen(true); // Reopen the form dialog if Razorpay is closed
+          setOpen(true);
         }
       }
     };
@@ -141,7 +161,7 @@ export function ProductCard({
       });
     });
     
-    setOpen(false); // Close the form dialog before opening razorpay
+    setOpen(false);
     rzp.open();
   };
 
