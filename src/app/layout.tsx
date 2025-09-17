@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Script from 'next/script';
+import { WhatsAppSupport } from '@/components/whatsapp-support';
 
 export const metadata: Metadata = {
   title: 'Sanatani Shop',
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         {children}
         <Toaster />
+        <WhatsAppSupport />
         <Script id="razorpay-checkout-js" src="https://checkout.razorpay.com/v1/checkout.js" />
       </body>
     </html>
