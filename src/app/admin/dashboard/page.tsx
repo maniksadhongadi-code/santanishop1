@@ -10,37 +10,8 @@ import { Badge } from '@/components/ui/badge';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 
-// Mock data for customer orders
-const orders = [
-  {
-    customerEmail: 'customer1@example.com',
-    customerPhone: '1234567890',
-    product: 'Adobe Creative Cloud',
-    status: 'Purchased',
-    date: '2024-07-28',
-  },
-  {
-    customerEmail: 'customer2@example.com',
-    customerPhone: '0987654321',
-    product: 'ChatGPT Plus',
-    status: 'Purchased',
-    date: '2024-07-27',
-  },
-  {
-    customerEmail: 'customer3@example.com',
-    customerPhone: '1122334455',
-    product: 'Adobe Creative Cloud',
-    status: 'Cancelled',
-    date: '2024-07-26',
-  },
-  {
-    customerEmail: 'customer4@example.com',
-    customerPhone: '5566778899',
-    product: 'ChatGPT Plus',
-    status: 'Purchased',
-    date: '2024-07-25',
-  },
-];
+// Customer order data will be populated here once a database is connected.
+const orders: any[] = [];
 
 export default function AdminDashboard() {
   return (
@@ -62,19 +33,27 @@ export default function AdminDashboard() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {orders.map((order, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium">{order.customerEmail}</TableCell>
-                  <TableCell>{order.customerPhone}</TableCell>
-                  <TableCell>{order.product}</TableCell>
-                  <TableCell>{order.date}</TableCell>
-                  <TableCell>
-                    <Badge variant={order.status === 'Purchased' ? 'default' : 'destructive'}>
-                      {order.status}
-                    </Badge>
+              {orders.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={5} className="text-center text-muted-foreground">
+                    No customer orders yet.
                   </TableCell>
                 </TableRow>
-              ))}
+              ) : (
+                orders.map((order, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium">{order.customerEmail}</TableCell>
+                    <TableCell>{order.customerPhone}</TableCell>
+                    <TableCell>{order.product}</TableCell>
+                    <TableCell>{order.date}</TableCell>
+                    <TableCell>
+                      <Badge variant={order.status === 'Purchased' ? 'default' : 'destructive'}>
+                        {order.status}
+                      </Badge>
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         </div>
