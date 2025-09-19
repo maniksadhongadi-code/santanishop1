@@ -65,45 +65,36 @@ const RazorpayButton = ({ paymentButtonId }: { paymentButtonId: string }) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    let script: HTMLScriptElement | null = null;
-    const loadScript = () => {
-      script = document.createElement('script');
-      script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
-      script.async = true;
-      script.dataset.payment_button_id = paymentButtonId;
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
+    script.async = true;
+    script.dataset.payment_button_id = paymentButtonId;
 
-      script.onload = () => {
-        setLoading(false);
-      };
-      
-      script.onerror = () => {
-        setLoading(false);
-        setError(true);
-      };
-
-      if (formRef.current) {
-        while (formRef.current.firstChild) {
-          formRef.current.removeChild(formRef.current.firstChild);
-        }
-        formRef.current.appendChild(script);
-      }
+    script.onload = () => setLoading(false);
+    script.onerror = () => {
+      setLoading(false);
+      setError(true);
     };
+
+    const currentFormRef = formRef.current;
+    if (currentFormRef) {
+      currentFormRef.appendChild(script);
+    }
     
-    // Use a small timeout to ensure the DOM is ready for script injection
-    const timer = setTimeout(loadScript, 100);
-
     return () => {
-      clearTimeout(timer);
-      if (script && script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
+        if (currentFormRef && currentFormRef.contains(script)) {
+            currentFormRef.removeChild(script);
+        }
+    }
   }, [paymentButtonId]);
 
-  if (loading) return <div className="text-sm text-muted-foreground">Loading payment button...</div>;
-  if (error) return <div className="text-sm text-destructive">Failed to load payment button.</div>;
-
-  return <form ref={formRef}></form>;
+  return (
+    <div>
+      {loading && !error && <div className="text-sm text-muted-foreground">Loading payment button...</div>}
+      {error && <div className="text-sm text-destructive">Failed to load payment button.</div>}
+      <form ref={formRef}></form>
+    </div>
+  );
 };
 
 
