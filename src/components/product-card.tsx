@@ -61,22 +61,41 @@ type ProductCardProps = {
 
 const RazorpayButton = ({ paymentButtonId }: { paymentButtonId: string }) => {
   const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
+    script.async = true;
+    script.dataset.payment_button_id = paymentButtonId;
+
+    script.onload = () => {
+      setLoading(false);
+    };
+    
+    script.onerror = () => {
+      setLoading(false);
+      setError(true);
+    };
+
     if (formRef.current) {
-      const script = document.createElement('script');
-      script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
-      script.async = true;
-      script.dataset.payment_button_id = paymentButtonId;
-      
-      // Clear the form before appending new script to avoid duplicates
       while (formRef.current.firstChild) {
         formRef.current.removeChild(formRef.current.firstChild);
       }
-      
       formRef.current.appendChild(script);
     }
+    
+    return () => {
+      // Clean up script if component unmounts
+      if (formRef.current && script.parentNode === formRef.current) {
+        formRef.current.removeChild(script);
+      }
+    };
   }, [paymentButtonId]);
+
+  if (loading) return <div className="text-sm text-muted-foreground">Loading payment button...</div>;
+  if (error) return <div className="text-sm text-destructive">Failed to load payment button.</div>;
 
   return <form ref={formRef}></form>;
 };
