@@ -229,7 +229,7 @@ export function ProductCard({
   
   const getPaymentButton = () => {
     if (name === 'ChatGPT Plus') {
-      return <RazorpayButton paymentButtonId="pl_RIh69PaaOtMDuj" />;
+      return <RazorpayButton paymentButtonId="pl_RJNAImU9yxA6ix" />;
     }
     if (name === 'Adobe Creative Cloud') {
       return <RazorpayButton paymentButtonId="pl_RJMvZXs0oPnQXL" />;
