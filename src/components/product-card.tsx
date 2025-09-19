@@ -65,31 +65,37 @@ const RazorpayButton = ({ paymentButtonId }: { paymentButtonId: string }) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
-    script.async = true;
-    script.dataset.payment_button_id = paymentButtonId;
+    let script: HTMLScriptElement | null = null;
+    const loadScript = () => {
+      script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
+      script.async = true;
+      script.dataset.payment_button_id = paymentButtonId;
 
-    script.onload = () => {
-      setLoading(false);
-    };
-    
-    script.onerror = () => {
-      setLoading(false);
-      setError(true);
-    };
+      script.onload = () => {
+        setLoading(false);
+      };
+      
+      script.onerror = () => {
+        setLoading(false);
+        setError(true);
+      };
 
-    if (formRef.current) {
-      while (formRef.current.firstChild) {
-        formRef.current.removeChild(formRef.current.firstChild);
+      if (formRef.current) {
+        while (formRef.current.firstChild) {
+          formRef.current.removeChild(formRef.current.firstChild);
+        }
+        formRef.current.appendChild(script);
       }
-      formRef.current.appendChild(script);
-    }
+    };
     
+    // Use a small timeout to ensure the DOM is ready for script injection
+    const timer = setTimeout(loadScript, 100);
+
     return () => {
-      // Clean up script if component unmounts
-      if (formRef.current && script.parentNode === formRef.current) {
-        formRef.current.removeChild(script);
+      clearTimeout(timer);
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
       }
     };
   }, [paymentButtonId]);
