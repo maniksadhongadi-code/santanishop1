@@ -6,7 +6,6 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 export default function HomePage() {
   const adobeImage = PlaceHolderImages.find(img => img.id === 'adobe-creative-cloud');
   const chatgptImage = PlaceHolderImages.find(img => img.id === 'chatgpt-plus');
-  const googleOneImage = PlaceHolderImages.find(img => img.id === 'google-one');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -29,16 +28,6 @@ export default function HomePage() {
               price="₹3,498"
               imageUrl={chatgptImage.imageUrl}
               imageHint={chatgptImage.imageHint}
-            />
-          )}
-          {googleOneImage && (
-            <ProductCard
-              name="Google One 2TB Gemini"
-              description="1-Year Subscription"
-              price="₹499"
-              imageUrl={googleOneImage.imageUrl}
-              imageHint={googleOneImage.imageHint}
-              aspectRatio="aspect-[9/16]"
             />
           )}
         </div>
