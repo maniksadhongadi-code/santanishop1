@@ -38,6 +38,7 @@ export default function HomePage() {
               price="₹499"
               imageUrl={googleOneImage.imageUrl}
               imageHint={googleOneImage.imageHint}
+              aspectRatio="aspect-[9/16]"
             />
           )}
         </div>

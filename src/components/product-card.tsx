@@ -57,6 +57,7 @@ type ProductCardProps = {
   imageUrl: string;
   imageHint: string;
   className?: string;
+  aspectRatio?: string;
 };
 
 const RazorpayButton = ({ paymentButtonId }: { paymentButtonId: string }) => {
@@ -105,6 +106,7 @@ export function ProductCard({
   imageUrl,
   imageHint,
   className,
+  aspectRatio = 'aspect-[3/2]',
 }: ProductCardProps) {
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
@@ -290,7 +292,7 @@ export function ProductCard({
   return (
     <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300', className)}>
       <CardContent className="p-0">
-        <div className="relative w-full aspect-[3/2] bg-muted">
+        <div className={cn('relative w-full bg-muted', aspectRatio)}>
           <Image
             src={imageUrl}
             alt={name}
