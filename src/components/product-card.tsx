@@ -297,7 +297,7 @@ export function ProductCard({
             src={imageUrl}
             alt={name}
             fill
-            className="object-contain w-full h-full"
+            className="object-contain"
             data-ai-hint={imageHint}
           />
         </div>
