@@ -11,6 +11,12 @@
       "description": "ChatGPT Plus 6-Month Subscription",
       "imageUrl": "https://iili.io/KRDezwg.md.png",
       "imageHint": "AI chatbot"
+    },
+    {
+      "id": "google-one",
+      "description": "Google One 2TB + Gemini Subscription",
+      "imageUrl": "https://picsum.photos/seed/g1/600/400",
+      "imageHint": "cloud storage"
     }
   ]
 }
