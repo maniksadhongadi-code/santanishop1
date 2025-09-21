@@ -7,6 +7,18 @@ import { WhatsAppFab } from '@/components/whatsapp-fab';
 export const metadata: Metadata = {
   title: 'Sanatani Shop',
   description: 'Your one-stop shop for premium digital subscriptions.',
+  openGraph: {
+    title: 'Sanatani Shop',
+    description: 'Your one-stop shop for premium digital subscriptions.',
+    images: [
+      {
+        url: 'https://iili.io/KRCtUdv.md.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Sanatani Shop Logo',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
