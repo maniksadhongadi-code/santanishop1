@@ -1,3 +1,5 @@
+'use client';
+
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { ProductCard } from '@/components/product-card';
@@ -36,7 +38,7 @@ export default function HomePage() {
             <ProductCard
               name="AutoDesk"
               description="1-Year Subscription"
-              price="₹4,999"
+              price="₹699"
               imageUrl={autodeskImage.imageUrl}
               imageHint={autodeskImage.imageHint}
             />
