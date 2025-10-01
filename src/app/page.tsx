@@ -6,6 +6,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 export default function HomePage() {
   const adobeImage = PlaceHolderImages.find(img => img.id === 'adobe-creative-cloud');
   const chatgptImage = PlaceHolderImages.find(img => img.id === 'chatgpt-plus');
+  const autodeskImage = PlaceHolderImages.find(img => img.id === 'autodesk');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -28,6 +29,16 @@ export default function HomePage() {
               price="₹3,498"
               imageUrl={chatgptImage.imageUrl}
               imageHint={chatgptImage.imageHint}
+              aspectRatio="aspect-[3/2]"
+            />
+          )}
+          {autodeskImage && (
+            <ProductCard
+              name="AutoDesk"
+              description="1-Year Subscription"
+              price="₹4,999"
+              imageUrl={autodeskImage.imageUrl}
+              imageHint={autodeskImage.imageHint}
             />
           )}
         </div>
