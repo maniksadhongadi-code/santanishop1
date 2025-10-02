@@ -236,6 +236,9 @@ export function ProductCard({
     if (name === 'Adobe Creative Cloud') {
       return <RazorpayButton paymentButtonId="pl_RJMvZXs0oPnQXL" />;
     }
+    if (name === 'AutoDesk') {
+      return <RazorpayButton paymentButtonId="pl_ROi1hw3ibNHlVI" />;
+    }
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
