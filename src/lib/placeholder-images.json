@@ -5,18 +5,6 @@
       "description": "Adobe Creative Cloud 1-Year Subscription",
       "imageUrl": "https://iili.io/KRCjqJ4.md.jpg",
       "imageHint": "creative software"
-    },
-    {
-      "id": "chatgpt-plus",
-      "description": "ChatGPT Plus 6-Month Subscription",
-      "imageUrl": "https://iili.io/KVTdnYN.md.png",
-      "imageHint": "AI chatbot"
-    },
-    {
-      "id": "autodesk",
-      "description": "1-Year Subscription",
-      "imageUrl": "https://iili.io/KMPJDfp.md.png",
-      "imageHint": "design software"
     }
   ]
 }
