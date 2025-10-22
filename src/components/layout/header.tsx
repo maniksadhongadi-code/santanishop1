@@ -1,13 +1,16 @@
+import Link from 'next/link';
 import { Logo } from '@/components/icons/logo';
 
 export function Header() {
   return (
     <header className="py-6 px-4 md:px-6 border-b">
       <div className="container mx-auto flex items-center gap-4">
-        <Logo className="h-16 w-16 text-primary" />
-        <h1 className="text-4xl font-bold tracking-tight text-foreground font-headline">
+        <Link href="/">
+          <Logo className="h-16 w-16 text-primary" />
+        </Link>
+        <Link href="/" className="text-4xl font-bold tracking-tight text-foreground font-headline no-underline hover:text-foreground/90">
           Sanatani Shop
-        </h1>
+        </Link>
       </div>
     </header>
   );
