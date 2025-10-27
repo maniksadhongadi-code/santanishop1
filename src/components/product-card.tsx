@@ -238,7 +238,7 @@ export function ProductCard({
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="default" className="w-full">
+          <Button variant="masking" className="w-full">
             <ShoppingCart className="mr-2 h-4 w-4" />
             Buy Now
           </Button>
