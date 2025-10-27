@@ -6,6 +6,7 @@ import { ProductCard } from '@/components/product-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { Megaphone, Palette, Codepen } from 'lucide-react';
 
 function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
@@ -84,6 +85,44 @@ function About() {
   )
 }
 
+function Services() {
+  return (
+    <section id="services" className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <span className="text-accent font-semibold">Our Services</span>
+          <h2 className="text-3xl md:text-4xl font-bold font-headline mt-2">
+            What We Do Best
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="p-8 border rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+            <Megaphone className="h-12 w-12 mx-auto text-primary mb-4" />
+            <h3 className="text-xl font-bold mb-2">Digital Marketing</h3>
+            <p className="text-muted-foreground">
+              Boost your online presence and reach your target audience with our data-driven digital marketing strategies. We help you grow your business from SEO to social media.
+            </p>
+          </div>
+          <div className="p-8 border rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+            <Palette className="h-12 w-12 mx-auto text-primary mb-4" />
+            <h3 className="text-xl font-bold mb-2">Graphic Design & Branding</h3>
+            <p className="text-muted-foreground">
+              Craft a stunning brand identity that resonates with your audience. Our creative team designs everything from logos to complete branding packages that tell your unique story.
+            </p>
+          </div>
+          <div className="p-8 border rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+            <Codepen className="h-12 w-12 mx-auto text-primary mb-4" />
+            <h3 className="text-xl font-bold mb-2">Website & App Development</h3>
+            <p className="text-muted-foreground">
+              Build a powerful digital experience with our custom website and mobile app development. We create responsive, user-friendly platforms that drive engagement and conversions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   const adobeImage = PlaceHolderImages.find(img => img.id === 'adobe-creative-cloud');
 
@@ -93,6 +132,7 @@ export default function HomePage() {
       <main className="flex-grow">
         <Hero />
         <About />
+        <Services />
         <section id="products" className="py-16 md:py-24">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
