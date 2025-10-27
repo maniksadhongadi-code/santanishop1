@@ -13,7 +13,7 @@ function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
 
   return (
-    <section className="relative h-[60vh] min-h-[400px] flex items-center text-white">
+    <section className="relative h-[75vh] min-h-[500px] flex items-center text-white">
       {heroImage && (
          <Image
           src={heroImage.imageUrl}
@@ -36,7 +36,7 @@ function Hero() {
             Get access to the best creative and productivity tools. SanataniShop offers genuine subscriptions with instant delivery and support.
           </p>
           <div data-animation="fadeInLeft" data-delay=".8s">
-            <Button size="lg" variant="default" asChild>
+            <Button size="lg" variant="masking" asChild>
               <a href="#products">Explore Products</a>
             </Button>
           </div>
@@ -55,7 +55,7 @@ function About() {
           <div>
             <div className="mb-8">
               <span className="text-accent font-semibold">About Our Shop</span>
-              <h2 className="text-3xl md:text-4xl font-bold font-headline mt-2">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline mt-2 text-foreground">
                 Good Software, Great Prices
               </h2>
             </div>
@@ -92,28 +92,34 @@ function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="text-accent font-semibold">Our Services</span>
-          <h2 className="text-3xl md:text-4xl font-bold font-headline mt-2">
+          <h2 className="text-3xl md:text-4xl font-bold font-headline mt-2 text-foreground">
             What We Do Best
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8 text-center">
-          <div className="p-8 border rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-            <LineChart className="h-12 w-12 mx-auto text-primary mb-4" />
-            <h3 className="text-xl font-bold mb-2">Digital Marketing</h3>
+          <div className="p-8 border bg-card rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+            <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
+                <LineChart className="h-10 w-10 text-primary" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 text-foreground">Digital Marketing</h3>
             <p className="text-muted-foreground">
               Boost your online presence and reach your target audience with our data-driven digital marketing strategies. We help you grow your business from SEO to social media.
             </p>
           </div>
-          <div className="p-8 border rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-            <Gem className="h-12 w-12 mx-auto text-primary mb-4" />
-            <h3 className="text-xl font-bold mb-2">Graphic Design & Branding</h3>
+          <div className="p-8 border bg-card rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+            <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
+                <Gem className="h-10 w-10 text-primary" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 text-foreground">Graphic Design & Branding</h3>
             <p className="text-muted-foreground">
               Craft a stunning brand identity that resonates with your audience. Our creative team designs everything from logos to complete branding packages that tell your unique story.
             </p>
           </div>
-          <div className="p-8 border rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-            <Code className="h-12 w-12 mx-auto text-primary mb-4" />
-            <h3 className="text-xl font-bold mb-2">Website & App Development</h3>
+          <div className="p-8 border bg-card rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+            <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
+                <Code className="h-10 w-10 text-primary" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 text-foreground">Website & App Development</h3>
             <p className="text-muted-foreground">
               Build a powerful digital experience with our custom website and mobile app development. We create responsive, user-friendly platforms that drive engagement and conversions.
             </p>
@@ -124,12 +130,31 @@ function Services() {
   );
 }
 
+const products: Product[] = [
+    {
+        name: 'Canva Pro',
+        description: 'Design anything. Publish anywhere. With Canva Pro, you get a full suite of tools to create professional designs with ease.',
+        price: '₹399',
+        imageUrl: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYW52YXxlbnwwfHx8fDE3NjE1OTEzOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+        imageHint: 'Canva logo'
+    },
+    {
+        name: 'Midjourney',
+        description: 'An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.',
+        price: '₹549',
+        imageUrl: 'https://images.unsplash.com/photo-1678560897587-a34204f2113c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtaWRqb3VybmV5fGVufDB8fHx8MTc2MTU5MTU0OXww&ixlib=rb-4.1.0&q=80&w=1080',
+        imageHint: 'Midjourney AI art'
+    }
+]
+
 export default function HomePage() {
   const [comparisonList, setComparisonList] = useState<Product[]>([]);
 
   const handleComparisonChange = (product: Product, isSelected: boolean) => {
     if (isSelected) {
-      setComparisonList(prev => [...prev, product]);
+      if (comparisonList.length < 4) {
+        setComparisonList(prev => [...prev, product]);
+      }
     } else {
       setComparisonList(prev => prev.filter(p => p.name !== product.name));
     }
@@ -138,7 +163,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow z-10">
         <Hero />
         <About />
         <Services />
@@ -146,11 +171,18 @@ export default function HomePage() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <span className="text-accent font-semibold">Our Offered Products</span>
-                    <h2 className="text-3xl md:text-4xl font-bold font-headline mt-2">
+                    <h2 className="text-3xl md:text-4xl font-bold font-headline mt-2 text-foreground">
                         Trendy and Popular Subscriptions
                     </h2>
                 </div>
                 <div className="flex flex-wrap justify-center gap-8">
+                    {products.map(product => (
+                        <ProductCard 
+                            key={product.name}
+                            product={product}
+                            onCompareChange={handleComparisonChange}
+                        />
+                    ))}
                 </div>
             </div>
         </section>
