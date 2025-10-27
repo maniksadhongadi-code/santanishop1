@@ -26,7 +26,7 @@ export function Footer() {
             <div id="contact">
                 <h4 className="font-bold text-lg mb-4">Contact Us</h4>
                 <ul className="space-y-2 text-muted-foreground">
-                    <li>Phone: +1 (123) 456-7890</li>
+                    <li>Phone: 9845634775</li>
                     <li>Email: contact@sanatanishop.com</li>
                 </ul>
             </div>
