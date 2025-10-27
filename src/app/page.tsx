@@ -31,6 +31,13 @@ import * as z from 'zod';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import { saveOrder } from '@/app/actions/save-order';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+
 
 // Razorpay type declaration
 declare global {
@@ -102,9 +109,26 @@ function About() {
              <p className="text-muted-foreground mb-8">
               At SanataniShop, we are committed to providing genuine, reliable subscriptions with a focus on customer satisfaction. We handle the process so you can focus on your work.
             </p>
-             <Button variant="outline" asChild>
-              <a href="#">Learn More</a>
-            </Button>
+             <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>What digital marketing services do you offer?</AccordionTrigger>
+                <AccordionContent>
+                  We offer a comprehensive suite of digital marketing services, including Search Engine Optimization (SEO), Pay-Per-Click (PPC) advertising, social media marketing, content marketing, and email marketing. Our goal is to help your business grow its online presence and reach the right audience.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger>How can you help with WordPress?</AccordionTrigger>
+                <AccordionContent>
+                  We specialize in custom WordPress theme and plugin development, website maintenance, performance optimization, and security hardening. Whether you need a new website or want to improve an existing one, we have the expertise to help.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger>Do you provide branding services?</AccordionTrigger>
+                <AccordionContent>
+                  Yes, we do. Our graphic design and branding services help you create a strong brand identity. This includes logo design, style guides, and marketing collateral to ensure your brand stands out.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
           <div className="relative h-80 w-full rounded-lg overflow-hidden shadow-lg">
              {aboutImage && (
