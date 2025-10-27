@@ -2,11 +2,12 @@
 
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { ProductCard } from '@/components/product-card';
+import { ProductCard, type Product } from '@/components/product-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Megaphone, Palette, Codepen } from 'lucide-react';
+import { useState } from 'react';
 
 function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
@@ -124,6 +125,15 @@ function Services() {
 }
 
 export default function HomePage() {
+  const [comparisonList, setComparisonList] = useState<Product[]>([]);
+
+  const handleComparisonChange = (product: Product, isSelected: boolean) => {
+    if (isSelected) {
+      setComparisonList(prev => [...prev, product]);
+    } else {
+      setComparisonList(prev => prev.filter(p => p.name !== product.name));
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-background">

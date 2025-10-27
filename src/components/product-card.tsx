@@ -32,6 +32,8 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { useState, useEffect, useRef } from 'react';
@@ -50,14 +52,19 @@ const formSchema = z.object({
   phone: z.string().min(1, { message: 'This field is required.' }),
 });
 
-type ProductCardProps = {
+export type Product = {
   name: string;
   description: string;
   price: string;
   imageUrl: string;
   imageHint: string;
+};
+
+type ProductCardProps = {
+  product: Product;
   className?: string;
   aspectRatio?: string;
+  onCompareChange?: (product: Product, selected: boolean) => void;
 };
 
 const RazorpayButton = ({ paymentButtonId }: { paymentButtonId: string }) => {
@@ -100,14 +107,12 @@ const RazorpayButton = ({ paymentButtonId }: { paymentButtonId: string }) => {
 
 
 export function ProductCard({
-  name,
-  description,
-  price,
-  imageUrl,
-  imageHint,
+  product,
   className,
   aspectRatio = 'aspect-[4/3]',
+  onCompareChange,
 }: ProductCardProps) {
+  const { name, description, price, imageUrl, imageHint } = product;
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -297,10 +302,17 @@ export function ProductCard({
       <CardContent className="p-6">
         <CardTitle className="font-headline text-xl mb-2">{name}</CardTitle>
         <CardDescription className="mb-4">{description}</CardDescription>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mb-4">
             <p className="text-2xl font-bold text-primary">{price}</p>
-            {getPaymentButton()}
+            <div className="flex items-center space-x-2">
+                <Checkbox 
+                  id={`compare-${name}`} 
+                  onCheckedChange={(checked) => onCompareChange?.(product, !!checked)}
+                />
+                <Label htmlFor={`compare-${name}`} className="text-sm font-medium text-muted-foreground">Compare</Label>
+            </div>
         </div>
+        {getPaymentButton()}
       </CardContent>
     </Card>
   );
