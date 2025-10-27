@@ -21,14 +21,14 @@ export function Footer() {
                     <li><Link href="/" className="text-muted-foreground hover:text-primary">Home</Link></li>
                     <li><Link href="/#products" className="text-muted-foreground hover:text-primary">Products</Link></li>
                     <li><Link href="/#about" className="text-muted-foreground hover:text-primary">About</Link></li>
-                    <li><Link href="#" className="text-muted-foreground hover:text-primary">Contact</Link></li>
+                    <li><Link href="#contact" className="text-muted-foreground hover:text-primary">Contact</Link></li>
                 </ul>
             </div>
-            <div>
-                <h4 className="font-bold text-lg mb-4">Useful Links</h4>
-                <ul className="space-y-2">
-                    <li><Link href="/policy" className="text-muted-foreground hover:text-primary">Policy</Link></li>
-                    <li><Link href="#" className="text-muted-foreground hover:text-primary">Terms & Conditions</Link></li>
+            <div id="contact">
+                <h4 className="font-bold text-lg mb-4">Contact Us</h4>
+                <ul className="space-y-2 text-muted-foreground">
+                    <li>Phone: +1 (123) 456-7890</li>
+                    <li>Email: contact@sanatanishop.com</li>
                 </ul>
             </div>
             <div>
@@ -43,6 +43,7 @@ export function Footer() {
         </div>
         <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
             <p>© {new Date().getFullYear()} Sanatani Shop. All rights reserved.</p>
+             <Link href="/policy" className="text-muted-foreground hover:text-primary">Privacy Policy</Link>
         </div>
       </div>
     </footer>
