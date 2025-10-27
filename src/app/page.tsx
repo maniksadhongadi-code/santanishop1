@@ -6,7 +6,7 @@ import { ProductCard, type Product } from '@/components/product-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Megaphone, Palette, Codepen } from 'lucide-react';
+import { LineChart, Gem, Code } from 'lucide-react';
 import { useState } from 'react';
 
 function Hero() {
@@ -98,21 +98,21 @@ function Services() {
         </div>
         <div className="grid md:grid-cols-3 gap-8 text-center">
           <div className="p-8 border rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-            <Megaphone className="h-12 w-12 mx-auto text-primary mb-4" />
+            <LineChart className="h-12 w-12 mx-auto text-primary mb-4" />
             <h3 className="text-xl font-bold mb-2">Digital Marketing</h3>
             <p className="text-muted-foreground">
               Boost your online presence and reach your target audience with our data-driven digital marketing strategies. We help you grow your business from SEO to social media.
             </p>
           </div>
           <div className="p-8 border rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-            <Palette className="h-12 w-12 mx-auto text-primary mb-4" />
+            <Gem className="h-12 w-12 mx-auto text-primary mb-4" />
             <h3 className="text-xl font-bold mb-2">Graphic Design & Branding</h3>
             <p className="text-muted-foreground">
               Craft a stunning brand identity that resonates with your audience. Our creative team designs everything from logos to complete branding packages that tell your unique story.
             </p>
           </div>
           <div className="p-8 border rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-            <Codepen className="h-12 w-12 mx-auto text-primary mb-4" />
+            <Code className="h-12 w-12 mx-auto text-primary mb-4" />
             <h3 className="text-xl font-bold mb-2">Website & App Development</h3>
             <p className="text-muted-foreground">
               Build a powerful digital experience with our custom website and mobile app development. We create responsive, user-friendly platforms that drive engagement and conversions.
