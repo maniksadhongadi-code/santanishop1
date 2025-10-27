@@ -106,7 +106,7 @@ export function ProductCard({
   imageUrl,
   imageHint,
   className,
-  aspectRatio = 'aspect-[3/2]',
+  aspectRatio = 'aspect-[4/3]',
 }: ProductCardProps) {
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
@@ -175,7 +175,7 @@ export function ProductCard({
         address: 'Sanatani Shop - Digital Goods',
       },
       theme: {
-        color: '#3399cc',
+        color: '#34495E',
       },
       modal: {
         ondismiss: async function() {
@@ -236,7 +236,7 @@ export function ProductCard({
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="masking" className="focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-2">
+          <Button variant="default" className="w-full">
             <ShoppingCart className="mr-2 h-4 w-4" />
             Buy Now
           </Button>
@@ -287,26 +287,24 @@ export function ProductCard({
   };
 
   return (
-    <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-3xl', className)}>
-      <CardContent className="p-0">
-        <div className={cn('relative w-full bg-muted', aspectRatio)}>
+    <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group', className)}>
+       <div className={cn('relative w-full bg-muted', aspectRatio)}>
           <Image
             src={imageUrl}
             alt={name}
             fill
-            className="object-contain"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
             data-ai-hint={imageHint}
           />
         </div>
+      <CardContent className="p-6">
+        <CardTitle className="font-headline text-xl mb-2">{name}</CardTitle>
+        <CardDescription className="mb-4">{description}</CardDescription>
+        <div className="flex justify-between items-center">
+            <p className="text-2xl font-bold text-primary">{price}</p>
+            {getPaymentButton()}
+        </div>
       </CardContent>
-      <CardHeader>
-        <CardTitle className="font-headline text-2xl">{name}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardFooter className="p-6 pt-0 flex justify-between items-center">
-        <p className="text-2xl font-bold text-foreground">{price}</p>
-        {getPaymentButton()}
-      </CardFooter>
     </Card>
   );
 }

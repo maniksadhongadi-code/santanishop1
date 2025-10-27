@@ -3,7 +3,6 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Script from 'next/script';
 import { WhatsAppFab } from '@/components/whatsapp-fab';
-import { BubbleAnimation } from '@/components/ui/bubble-animation';
 
 export const metadata: Metadata = {
   title: 'Sanatani Shop',
@@ -32,10 +31,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <BubbleAnimation />
         <div className="relative z-10">{children}</div>
         <WhatsAppFab phoneNumber="9845634775" />
         <Toaster />

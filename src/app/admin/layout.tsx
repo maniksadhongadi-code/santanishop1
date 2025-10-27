@@ -1,5 +1,4 @@
-
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/header-admin';
 import { Footer } from '@/components/layout/footer';
 import { Nav } from './_components/nav';
 
