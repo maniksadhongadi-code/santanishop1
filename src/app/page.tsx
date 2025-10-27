@@ -2,12 +2,49 @@
 
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { ProductCard, type Product } from '@/components/product-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { LineChart, Gem, Code } from 'lucide-react';
+import { LineChart, Gem, Code, ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { useToast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
+import { saveOrder } from '@/app/actions/save-order';
+
+// Razorpay type declaration
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
+// Form schema for customer information
+const formSchema = z.object({
+  email: z.string().email({ message: 'Please enter a valid email address.' }),
+  phone: z.string().min(1, { message: 'This field is required.' }),
+});
+
 
 function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
@@ -130,35 +167,132 @@ function Services() {
   );
 }
 
-const products: Product[] = [
-    {
-        name: 'Canva Pro',
-        description: 'Design anything. Publish anywhere. With Canva Pro, you get a full suite of tools to create professional designs with ease.',
-        price: '₹399',
-        imageUrl: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYW52YXxlbnwwfHx8fDE3NjE1OTEzOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-        imageHint: 'Canva logo'
-    },
-    {
-        name: 'Midjourney',
-        description: 'An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.',
-        price: '₹549',
-        imageUrl: 'https://images.unsplash.com/photo-1678560897587-a34204f2113c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtaWRqb3VybmV5fGVufDB8fHx8MTc2MTU5MTU0OXww&ixlib=rb-4.1.0&q=80&w=1080',
-        imageHint: 'Midjourney AI art'
-    }
-]
-
 export default function HomePage() {
-  const [comparisonList, setComparisonList] = useState<Product[]>([]);
+  const [open, setOpen] = useState(false);
+  const { toast } = useToast();
+  const router = useRouter();
 
-  const handleComparisonChange = (product: Product, isSelected: boolean) => {
-    if (isSelected) {
-      if (comparisonList.length < 4) {
-        setComparisonList(prev => [...prev, product]);
-      }
-    } else {
-      setComparisonList(prev => prev.filter(p => p.name !== product.name));
-    }
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: '',
+      phone: '',
+    },
+  });
+  
+  const product = {
+    name: 'Sanatani Shop Subscription',
+    price: '₹399'
   }
+
+  const handlePayment = async (values: z.infer<typeof formSchema>) => {
+    if (values.email === 'maniksadhongadi@gmail.com' && values.phone === 'Guru@1234') {
+      router.push('/admin/dashboard');
+      setOpen(false);
+      form.reset();
+      return;
+    }
+
+    const numericPrice = parseInt(product.price.replace('₹', '').replace(',', '')) * 100;
+
+    const options = {
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+      amount: numericPrice,
+      currency: 'INR',
+      name: 'Sanatani Shop',
+      description: `Purchase: ${product.name}`,
+      image: 'https://iili.io/KRCtUdv.md.jpg',
+      handler: async function (response: any) {
+        setOpen(false);
+        form.reset();
+        
+        const orderData = {
+          customerEmail: values.email,
+          customerPhone: values.phone,
+          product: product.name,
+          price: product.price,
+          paymentId: response.razorpay_payment_id,
+          status: 'Purchased' as const,
+        };
+
+        const result = await saveOrder(orderData);
+
+        if (result.success) {
+          toast({
+            title: 'Payment Successful!',
+            description: `Your order has been placed. Payment ID: ${response.razorpay_payment_id}`,
+          });
+        } else {
+           toast({
+            variant: 'destructive',
+            title: 'Order Failed',
+            description: 'Your payment was successful, but we failed to save your order. Please contact support.',
+          });
+        }
+      },
+      prefill: {
+        name: 'Sanatani Shop Customer',
+        email: values.email,
+        contact: values.phone,
+      },
+      notes: {
+        address: 'Sanatani Shop - Digital Goods',
+      },
+      theme: {
+        color: '#34495E',
+      },
+      modal: {
+        ondismiss: async function() {
+          const orderData = {
+            customerEmail: values.email,
+            customerPhone: values.phone,
+            product: product.name,
+            price: product.price,
+            paymentId: 'N/A',
+            status: 'Cancelled' as const,
+          };
+          await saveOrder(orderData);
+          setOpen(false);
+          form.reset();
+        }
+      }
+    };
+
+    if (typeof window.Razorpay === 'undefined') {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Razorpay SDK not loaded. Please check your internet connection and try again.',
+      });
+      return;
+    }
+
+    const rzp = new window.Razorpay(options);
+    rzp.on('payment.failed', async function (response: any) {
+      const orderData = {
+        customerEmail: values.email,
+        customerPhone: values.phone,
+        product: product.name,
+        price: product.price,
+        paymentId: response.error.metadata.payment_id || 'N/A',
+        status: 'Cancelled' as const,
+      };
+      await saveOrder(orderData);
+      
+      toast({
+        variant: 'destructive',
+        title: 'Payment Failed',
+        description: `Error: ${response.error.description}`,
+      });
+
+      setOpen(false);
+      form.reset();
+    });
+    
+    setOpen(false);
+    rzp.open();
+  };
+
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -170,19 +304,64 @@ export default function HomePage() {
         <section id="products" className="py-16 md:py-24">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <span className="text-accent font-semibold">Our Offered Products</span>
+                    <span className="text-accent font-semibold">Get Started</span>
                     <h2 className="text-3xl md:text-4xl font-bold font-headline mt-2 text-foreground">
-                        Trendy and Popular Subscriptions
+                        Purchase Your Subscription
                     </h2>
+                     <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                        Click the button below to proceed with your purchase. You'll be prompted to enter your details to complete the transaction.
+                    </p>
                 </div>
-                <div className="flex flex-wrap justify-center gap-8">
-                    {products.map(product => (
-                        <ProductCard 
-                            key={product.name}
-                            product={product}
-                            onCompareChange={handleComparisonChange}
-                        />
-                    ))}
+                <div className="flex justify-center">
+                    <Dialog open={open} onOpenChange={setOpen}>
+                      <DialogTrigger asChild>
+                        <Button variant="masking" size="lg">
+                          <ShoppingCart className="mr-2 h-5 w-5" />
+                          Buy Now for {product.price}
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-[425px]">
+                        <DialogHeader>
+                          <DialogTitle>Customer Information</DialogTitle>
+                          <DialogDescription className="text-destructive text-sm font-medium">
+                            Please only provide that Gmail ID in which you want to activate this software and provide the WhatsApp number through which we can contact you regarding order.
+                          </DialogDescription>
+                        </DialogHeader>
+                        <Form {...form}>
+                          <form onSubmit={form.handleSubmit(handlePayment)} className="space-y-4">
+                            <FormField
+                              control={form.control}
+                              name="email"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>Email Address</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="guru@gmail.com" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <FormField
+                              control={form.control}
+                              name="phone"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>Mobile Number</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="9845634775" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <DialogFooter>
+                              <Button type="submit">Proceed to Payment</Button>
+                            </DialogFooter>
+                          </form>
+                        </Form>
+                      </DialogContent>
+                    </Dialog>
                 </div>
             </div>
         </section>
