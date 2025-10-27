@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Script from 'next/script';
 import { WhatsAppFab } from '@/components/whatsapp-fab';
+import { StickyBottomNav } from '@/components/layout/sticky-bottom-nav';
 
 export const metadata: Metadata = {
   title: 'Sanatani Shop',
@@ -35,6 +36,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <div className="relative z-10">{children}</div>
+        <StickyBottomNav />
         <WhatsAppFab phoneNumber="9845634775" />
         <Toaster />
         <Script id="razorpay-checkout-js" src="https://checkout.razorpay.com/v1/checkout.js" />

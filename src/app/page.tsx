@@ -5,8 +5,9 @@ import { Footer } from '@/components/layout/footer';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { LineChart, Gem, Code, ShoppingCart } from 'lucide-react';
+import { LineChart, Gem, Code, ShoppingCart, Newspaper } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 import {
   Dialog,
   DialogContent,
@@ -189,6 +190,65 @@ function Services() {
       </div>
     </section>
   );
+}
+
+function Blog() {
+  const blogImage1 = PlaceHolderImages.find(p => p.id === 'blog-1');
+  const blogImage2 = PlaceHolderImages.find(p => p.id === 'blog-2');
+  const blogImage3 = PlaceHolderImages.find(p => p.id === 'blog-3');
+  return (
+    <section id="blog" className="py-16 md:py-24 bg-card">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <span className="text-accent font-semibold">Our Blog</span>
+          <h2 className="text-3xl md:text-4xl font-bold font-headline mt-2 text-foreground">
+            Recent News
+          </h2>
+           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Stay updated with the latest trends in digital marketing, design, and technology.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+           <div className="bg-background rounded-lg shadow-md overflow-hidden group">
+            {blogImage1 && (
+              <Link href="#">
+                  <Image src={blogImage1.imageUrl} alt={blogImage1.description} width={600} height={400} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" data-ai-hint={blogImage1.imageHint}/>
+              </Link>
+            )}
+             <div className="p-6">
+                <p className="text-sm text-muted-foreground mb-2">Dec 23, 2024</p>
+                <h3 className="text-xl font-bold mb-3"><Link href="#" className="hover:text-primary transition-colors">The Future of AI in Digital Marketing</Link></h3>
+                <p className="text-muted-foreground">Explore how artificial intelligence is reshaping marketing strategies and what it means for your business.</p>
+            </div>
+          </div>
+          <div className="bg-background rounded-lg shadow-md overflow-hidden group">
+            {blogImage2 && (
+              <Link href="#">
+                  <Image src={blogImage2.imageUrl} alt={blogImage2.description} width={600} height={400} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" data-ai-hint={blogImage2.imageHint}/>
+              </Link>
+            )}
+             <div className="p-6">
+                <p className="text-sm text-muted-foreground mb-2">Dec 15, 2024</p>
+                <h3 className="text-xl font-bold mb-3"><Link href="#" className="hover:text-primary transition-colors">5 Tips for a Powerful Brand Identity</Link></h3>
+                <p className="text-muted-foreground">Learn key strategies to build a memorable brand that stands out from the competition.</p>
+            </div>
+          </div>
+           <div className="bg-background rounded-lg shadow-md overflow-hidden group">
+            {blogImage3 && (
+              <Link href="#">
+                  <Image src={blogImage3.imageUrl} alt={blogImage3.description} width={600} height={400} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" data-ai-hint={blogImage3.imageHint}/>
+              </Link>
+            )}
+             <div className="p-6">
+                <p className="text-sm text-muted-foreground mb-2">Dec 08, 2024</p>
+                <h3 className="text-xl font-bold mb-3"><Link href="#" className="hover:text-primary transition-colors">Optimizing WordPress for Speed</Link></h3>
+                <p className="text-muted-foreground">Discover simple yet effective techniques to boost your WordPress site's performance and user experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default function HomePage() {
@@ -389,6 +449,7 @@ export default function HomePage() {
                 </div>
             </div>
         </section>
+        <Blog />
       </main>
       <Footer />
     </div>
