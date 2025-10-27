@@ -68,7 +68,7 @@ function Hero() {
           data-ai-hint={heroImage.imageHint}
         />
       )}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/60" />
       <div className="relative container mx-auto px-4 z-10">
         <div className="max-w-3xl">
           <span className="block mb-2 text-lg font-semibold text-accent" data-animation="fadeInLeft" data-delay=".2s">
@@ -94,7 +94,7 @@ function Hero() {
 function About() {
   const aboutImage = PlaceHolderImages.find(p => p.id === 'about-section');
   return (
-     <section id="about" className="py-16 md:py-24 bg-card">
+     <section id="about" className="py-16 md:py-24 bg-card border-y">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -131,7 +131,7 @@ function About() {
               </AccordionItem>
             </Accordion>
           </div>
-          <div className="relative h-80 w-full rounded-lg overflow-hidden shadow-lg">
+          <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl shadow-slate-200/60">
              {aboutImage && (
                <Image
                 src={aboutImage.imageUrl}
@@ -159,7 +159,7 @@ function Services() {
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8 text-center">
-          <div className="p-8 border bg-card rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-card rounded-xl shadow-lg shadow-slate-200/60 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
                 <LineChart className="h-10 w-10 text-primary" />
             </div>
@@ -168,7 +168,7 @@ function Services() {
               Boost your online presence and reach your target audience with our data-driven digital marketing strategies. We help you grow your business from SEO to social media.
             </p>
           </div>
-          <div className="p-8 border bg-card rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-card rounded-xl shadow-lg shadow-slate-200/60 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
                 <Gem className="h-10 w-10 text-primary" />
             </div>
@@ -177,7 +177,7 @@ function Services() {
               Craft a stunning brand identity that resonates with your audience. Our creative team designs everything from logos to complete branding packages that tell your unique story.
             </p>
           </div>
-          <div className="p-8 border bg-card rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+          <div className="p-8 bg-card rounded-xl shadow-lg shadow-slate-200/60 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <div className="p-4 bg-primary/10 rounded-full inline-block mb-4">
                 <Code className="h-10 w-10 text-primary" />
             </div>
@@ -197,7 +197,7 @@ function Blog() {
   const blogImage2 = PlaceHolderImages.find(p => p.id === 'blog-2');
   const blogImage3 = PlaceHolderImages.find(p => p.id === 'blog-3');
   return (
-    <section id="blog" className="py-16 md:py-24 bg-card">
+    <section id="blog" className="py-16 md:py-24 bg-card border-y">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="text-accent font-semibold">Our Blog</span>
@@ -323,7 +323,7 @@ export default function HomePage() {
         address: 'Sanatani Shop - Digital Goods',
       },
       theme: {
-        color: '#34495E',
+        color: '#2c3e50',
       },
       modal: {
         ondismiss: async function() {
