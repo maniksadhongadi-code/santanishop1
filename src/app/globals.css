@@ -82,4 +82,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  html, body {
+    background-color: transparent !important;
+  }
 }
