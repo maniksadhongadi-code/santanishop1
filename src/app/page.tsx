@@ -12,7 +12,7 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8 sm:py-16">
-        <div className="flex flex-wrap justify-center gap-8">
+        <section id="products" className="flex flex-wrap justify-center gap-8">
           {adobeImage && (
             <ProductCard
               name="Adobe Creative Cloud"
@@ -22,7 +22,7 @@ export default function HomePage() {
               imageHint={adobeImage.imageHint}
             />
           )}
-        </div>
+        </section>
       </main>
       <Footer />
     </div>
