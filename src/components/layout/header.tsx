@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { Logo } from '@/components/icons/logo';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export function Header() {
   return (
@@ -16,14 +17,14 @@ export function Header() {
           </Link>
         </div>
 
-        <nav className="hidden md:flex gap-6 items-center">
-          <Link href="/" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors">
+        <nav className="hidden md:flex gap-4 items-center">
+          <Link href="/" className={cn(buttonVariants({ variant: 'masking', size: 'default' }), 'text-lg')}>
             Home
           </Link>
-          <Link href="/#products" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/#products" className={cn(buttonVariants({ variant: 'masking', size: 'default' }), 'text-lg')}>
             Products
           </Link>
-          <Link href="/about" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/about" className={cn(buttonVariants({ variant: 'masking', size: 'default' }), 'text-lg')}>
             About
           </Link>
         </nav>

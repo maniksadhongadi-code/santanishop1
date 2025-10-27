@@ -236,7 +236,7 @@ export function ProductCard({
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-2">
+          <Button variant="masking" className="focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-2">
             <ShoppingCart className="mr-2 h-4 w-4" />
             Buy Now
           </Button>
@@ -287,7 +287,7 @@ export function ProductCard({
   };
 
   return (
-    <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300', className)}>
+    <Card className={cn('w-full max-w-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-3xl', className)}>
       <CardContent className="p-0">
         <div className={cn('relative w-full bg-muted', aspectRatio)}>
           <Image
