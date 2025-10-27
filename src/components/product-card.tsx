@@ -230,9 +230,6 @@ export function ProductCard({
   };
   
   const getPaymentButton = () => {
-    if (name === 'Adobe Creative Cloud') {
-      return <RazorpayButton paymentButtonId="pl_RRDgKfpZJzBThu" />;
-    }
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>

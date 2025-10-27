@@ -124,7 +124,6 @@ function Services() {
 }
 
 export default function HomePage() {
-  const adobeImage = PlaceHolderImages.find(img => img.id === 'adobe-creative-cloud');
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -142,15 +141,6 @@ export default function HomePage() {
                     </h2>
                 </div>
                 <div className="flex flex-wrap justify-center gap-8">
-                    {adobeImage && (
-                        <ProductCard
-                        name="Adobe Creative Cloud"
-                        description="1-Year Subscription"
-                        price="₹2,499"
-                        imageUrl={adobeImage.imageUrl}
-                        imageHint={adobeImage.imageHint}
-                        />
-                    )}
                 </div>
             </div>
         </section>
