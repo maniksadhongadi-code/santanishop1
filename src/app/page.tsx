@@ -2,6 +2,46 @@
 
 import Image from 'next/image';
 import React from 'react';
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+} from 'lucide-react';
+
+// A simple component for the WhatsApp icon as it's not in lucide-react
+const WhatsAppIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+  </svg>
+);
+
+const PinterestIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 4a8 8 0 0 0-8 8c0 3.5 2.5 6.5 6 7.5V14.5h-2v-3h2V9.5c0-2 1.5-3.5 3.5-3.5h2.5v3H15c-.5 0-1 .5-1 1v2h2.5l-.5 3H14v7.5c3.5-1 6-4 6-7.5a8 8 0 0 0-8-8z" />
+  </svg>
+);
+
 
 export default function Home() {
   const scrollToSection = (id: string) => {
@@ -301,6 +341,17 @@ export default function Home() {
             <div className="small">
               Creative Digital Services
             </div>
+          </div>
+          <div className="socials">
+             <div style={{ fontWeight: 700, marginBottom: '8px' }}>Follow us</div>
+             <div className="social-icons">
+                <a href="#"><Facebook size={20} /></a>
+                <a href="#"><Twitter size={20} /></a>
+                <a href="#"><Instagram size={20} /></a>
+                <a href="#"><PinterestIcon /></a>
+                <a href="#"><WhatsAppIcon /></a>
+                <a href="#"><Youtube size={20} /></a>
+             </div>
           </div>
           <div className="small">
             © Sanatani Shop — All rights reserved

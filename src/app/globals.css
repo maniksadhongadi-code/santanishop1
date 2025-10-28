@@ -198,6 +198,26 @@ select {
   margin-top: 28px;
 }
 
+.socials {
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.social-icons a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.social-icons a:hover {
+  color: var(--accent);
+}
+
+
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
