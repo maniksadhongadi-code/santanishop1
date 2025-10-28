@@ -43,6 +43,7 @@ export default function Home() {
           <span></span>
           <span></span>
         </div>
+        <h1 className="shop-title">SANATANI SHOP</h1>
       </nav>
 
       <ul className={`nav-list ${isNavActive ? 'show' : ''}`}>

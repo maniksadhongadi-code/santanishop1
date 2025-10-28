@@ -28,9 +28,16 @@ body {
   left: 0;
   padding: 0 10rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   z-index: 9;
+}
+
+.shop-title {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .toggle-btn {
