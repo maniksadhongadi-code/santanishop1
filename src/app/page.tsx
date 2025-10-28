@@ -12,7 +12,8 @@ import {
   Instagram,
   Youtube,
   Globe,
-  Target
+  Target,
+  MessageCircle,
 } from 'lucide-react';
 
 const categories = [
@@ -183,6 +184,9 @@ export default function Home() {
             {page.name}
           </li>
         ))}
+         <li className="link" onClick={() => handleLinkClick(pages.findIndex(p => p.name === 'Notes'))}>
+            Notes
+          </li>
       </ul>
 
       <header ref={pageContainerRef} className={`page-container ${isNavActive ? 'active' : ''}`}>
@@ -304,9 +308,12 @@ export default function Home() {
       <div className="bottom-nav">
         <button className="jelly-button" onClick={() => handleLinkClick(0)}>Home</button>
         <button className="jelly-button" onClick={() => setShowCategoryCube(true)}>Categories</button>
-        <button className="jelly-button" onClick={() => handleLinkClick(1)}>Shop</button>
-        <button className="jelly-button" onClick={() => handleLinkClick(2)}>Blog</button>
-        <button className="jelly-button" onClick={() => handleLinkClick(5)}>FAQs</button>
+        <button className="jelly-button" onClick={() => handleLinkClick(2)}>Our Story</button>
+        <button className="jelly-button">Quick Links</button>
+        <button className="jelly-button">Information</button>
+        <button className="jelly-button icon-only">
+            <MessageCircle size={20} />
+        </button>
       </div>
     </>
   );
