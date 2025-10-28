@@ -9,6 +9,11 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  Instagram,
+  Youtube,
+  Globe,
+  TrendingUp,
+  Target
 } from 'lucide-react';
 
 const categories = [
@@ -20,11 +25,35 @@ const categories = [
   'Best Digital Products and Service Provider',
 ];
 
+const marketingServices = [
+  {
+    icon: <Instagram size={40} className="service-card-icon" />,
+    title: 'Instagram Growth Funnels',
+    description: 'Build automated sales funnels to convert followers into customers with targeted ad campaigns and content strategies.',
+  },
+  {
+    icon: <Youtube size={40} className="service-card-icon" />,
+    title: 'YouTube Audience Builder',
+    description: 'Grow your subscriber base and engagement through optimized content, keyword strategy, and promotional tactics.',
+  },
+  {
+    icon: <Globe size={40} className="service-card-icon" />,
+    title: 'WordPress SEO & Content',
+    description: 'Drive organic traffic to your WordPress site with comprehensive SEO, content marketing, and backlink strategies.',
+  },
+  {
+    icon: <Target size={40} className="service-card-icon" />,
+    title: 'Conversion Funnel Marketing',
+    description: 'Design and optimize full-funnel marketing campaigns that guide users from awareness to conversion and loyalty.',
+  }
+];
+
 export default function Home() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
   const [isSecondSearchExpanded, setIsSecondSearchExpanded] = useState(false);
   const [showCategoryCube, setShowCategoryCube] = useState(false);
+  const [showShop, setShowShop] = useState(false);
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
 
   const overlayRef = useRef<HTMLSpanElement>(null);
@@ -68,13 +97,13 @@ export default function Home() {
   useEffect(() => {
     const pageContainer = pageContainerRef.current;
     if (pageContainer) {
-      if (showCategoryCube) {
+      if (showCategoryCube || showShop) {
         pageContainer.classList.add('blur');
       } else {
         pageContainer.classList.remove('blur');
       }
     }
-  }, [showCategoryCube]);
+  }, [showCategoryCube, showShop]);
 
 
   return (
@@ -97,9 +126,9 @@ export default function Home() {
             </button>
           </div>
           
-          <div className={`search-box ${isSecondSearchExpanded ? 'active' : ''}`} onMouseEnter={() => setIsSecondSearchExpanded(true)} onMouseLeave={() => setIsSecondSearchExpanded(false)}>
+          <div className={`search-box ${isSecondSearchExpanded ? 'active' : ''}`} >
             <input type="text" placeholder="Search..." />
-            <div className="search-icon">
+            <div className="search-icon" onClick={() => setIsSecondSearchExpanded(!isSecondSearchExpanded)}>
                 <Search size={20} />
             </div>
             <div className="cancel-icon" onClick={() => setIsSecondSearchExpanded(false)}>
@@ -206,9 +235,29 @@ export default function Home() {
         </div>
       )}
 
+      {showShop && (
+        <div className="shop-overlay">
+          <button className="close-shop-btn" onClick={() => setShowShop(false)}>
+            <X size={30} />
+          </button>
+          <div className="shop-container">
+            <h2>Digital Marketing Services</h2>
+            <div className="services-grid">
+              {marketingServices.map((service, index) => (
+                <div key={index} className="service-card">
+                  {service.icon}
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="bottom-nav">
         <button className="jelly-button" onClick={() => setShowCategoryCube(true)}>Categories</button>
-        <button className="jelly-button">Shop</button>
+        <button className="jelly-button" onClick={() => setShowShop(true)}>Shop</button>
         <button className="jelly-button">Blog</button>
         <button className="jelly-button">FAQs</button>
       </div>
