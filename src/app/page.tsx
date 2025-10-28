@@ -111,7 +111,7 @@ export default function Home() {
             }}
           >
             <Image
-              src="https://picsum.photos/seed/digitalmarketinglogo/420/380"
+              src="https://iili.io/KPdWQgs.md.jpg"
               alt="Digital Marketing Logo"
               fill
               style={{ objectFit: 'cover', borderRadius: '16px' }}
@@ -256,7 +256,7 @@ export default function Home() {
 
         <section id="contact" className="contact">
           <div>
-            <h2>Contact Us</h2>
+            <h2>Information</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
               <a href="#" className="small">Contact Us</a>
               <a href="#" className="small">Privacy Policy</a>
