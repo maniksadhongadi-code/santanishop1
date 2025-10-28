@@ -158,6 +158,7 @@ export default function Home() {
                   full potential of digital marketing. We specialize in
                   creating dynamic, engaging online experiences that connect you
                   with your audience and drive growth. From SEO and social
+
                   media strategies to complete WordPress solutions, we are your
                   dedicated partner in navigating the digital landscape.
                 </p>
