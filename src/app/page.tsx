@@ -8,7 +8,7 @@ export default function Home() {
 
   const pages = [
     { name: 'Home', className: 'home' },
-    { name: 'Project', className: 'project' },
+    { name: 'Notes', className: 'notes' },
     { name: 'About', className: 'about' },
   ];
 
@@ -60,7 +60,16 @@ export default function Home() {
             key={page.name}
             className={`page ${page.className} ${pageIndex === index ? 'active' : ''}`}
           >
-            <p className="title">{page.name === 'About' ? 'Frontend Developer' : page.name}</p>
+            {page.name === 'Notes' ? (
+              <div className="content">
+                <h1 className="title">Digital Marketing</h1>
+                <p>
+                  Digital marketing encompasses all marketing efforts that use an electronic device or the internet. Businesses leverage digital channels such as search engines, social media, email, and their websites to connect with current and prospective customers.
+                </p>
+              </div>
+            ) : (
+              <p className="title">{page.name === 'About' ? 'Frontend Developer' : page.name}</p>
+            )}
           </section>
         ))}
       </header>
