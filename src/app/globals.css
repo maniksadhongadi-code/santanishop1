@@ -238,6 +238,7 @@ body {
 
 .search-box {
   position: relative;
+  margin-top: 0.5rem;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -273,9 +274,9 @@ body {
 
 .search-box .search-icon {
   position: absolute;
-  right: 5px;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   height: 30px;
   width: 30px;
   background: #fff;
@@ -287,12 +288,17 @@ body {
   cursor: pointer;
   z-index: 1;
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-box.active .search-icon {
   height: 30px;
   width: 50px;
+  left: auto;
   right: 0px;
+  transform: translateY(-50%);
   background: #644bff;
   color: #fff;
   border-radius: 0 5px 5px 0;
@@ -307,11 +313,13 @@ body {
   color: #fff;
   cursor: pointer;
   transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 0;
 }
 
 .search-box.active .cancel-icon {
   right: -40px;
   transform: translateY(-50%) rotate(360deg);
+  opacity: 1;
 }
 
 .search-data {

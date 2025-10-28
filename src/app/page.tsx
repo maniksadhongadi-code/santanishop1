@@ -7,6 +7,7 @@ import {
   ShoppingCart,
   ChevronDown,
   Search,
+  X,
 } from 'lucide-react';
 
 export default function Home() {
@@ -71,11 +72,19 @@ export default function Home() {
             onMouseLeave={() => setIsSearchExpanded(false)}
           >
             <input type="text" placeholder="Search" />
-            <div className="search-icon">
+            <div
+              className="search-icon"
+              onClick={() => {
+                if (!isSearchExpanded) setIsSearchExpanded(true);
+              }}
+            >
               <Search size={20} />
             </div>
-            <div className="cancel-icon">
-              <Search size={20} />
+            <div
+              className="cancel-icon"
+              onClick={() => setIsSearchExpanded(false)}
+            >
+              <X size={20} />
             </div>
             <div className="search-data"></div>
           </div>
@@ -146,6 +155,7 @@ export default function Home() {
                   content marketing, and social media to build brand
                   awareness, drive engagement, and boost conversions. We focus
                   on data-driven insights to optimize campaigns and deliver
+
                   measurable results.
                 </p>
               </div>
