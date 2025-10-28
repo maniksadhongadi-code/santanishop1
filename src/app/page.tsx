@@ -115,7 +115,7 @@ export default function Home() {
             }}
           >
             <Image
-              src="https://picsum.photos/seed/10/420/380"
+              src="https://picsum.photos/seed/1/420/380"
               alt="Sanatani Shop Digital Marketing"
               fill
               style={{ objectFit: 'cover', borderRadius: '16px' }}
