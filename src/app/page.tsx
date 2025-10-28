@@ -25,9 +25,9 @@ export default function Home() {
           <div className="brand">
             <div className="logo">SS</div>
             <div>
-              <div style={{ fontWeight: 800 }}>Sanatani Shop</div>
+              <div style={{ fontWeight: 800 }}>Sanatani Software</div>
               <div style={{ fontSize: '12px', opacity: 0.95 }}>
-                Digital marketing for spiritual & handcrafted brands
+                Custom Software Solutions for Modern Business
               </div>
             </div>
           </div>
@@ -52,49 +52,55 @@ export default function Home() {
           </nav>
 
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <a className="btn btn-outline" onClick={() => scrollToSection('contact')}>
-              Get Proposal
+            <a
+              className="btn btn-outline"
+              onClick={() => scrollToSection('contact')}
+            >
+              Get a Quote
             </a>
           </div>
         </div>
 
         <div className="container hero">
           <div className="hero-card">
-            <h1>Digital Marketing that honours tradition</h1>
+            <h1>Innovative Software for Modern Businesses</h1>
             <p>
-              We grow spiritual, artisanal and handcrafted brands with targeted
-              ads, local SEO, content that converts and beautiful design—so
-              your products reach the right hearts.
+              We build custom software, web applications, and mobile apps that
+              solve complex problems and drive business growth. Let us turn
+              your vision into a powerful digital solution.
             </p>
             <div className="cta">
               <button
                 className="btn btn-primary"
                 onClick={() => scrollToSection('contact')}
               >
-                Request a Proposal
+                Request a Quote
               </button>
-              <a className="btn btn-outline" onClick={() => scrollToSection('portfolio')}>
+              <a
+                className="btn btn-outline"
+                onClick={() => scrollToSection('portfolio')}
+              >
                 See Our Work
               </a>
             </div>
 
             <div className="services">
               <div className="service">
-                <h4>Paid Ads</h4>
+                <h4>Web Development</h4>
                 <div className="small">
-                  Google & Social ads with audience research
+                  Scalable and secure web applications
                 </div>
               </div>
               <div className="service">
-                <h4>SEO & Local</h4>
+                <h4>Mobile Apps</h4>
                 <div className="small">
-                  Rank for devotional & product keywords
+                  Native and cross-platform iOS & Android apps
                 </div>
               </div>
               <div className="service">
-                <h4>Content & Creatives</h4>
+                <h4>Cloud Solutions</h4>
                 <div className="small">
-                  Product pages, reels & email funnels
+                  Infrastructure, DevOps, and cloud migrations
                 </div>
               </div>
             </div>
@@ -109,10 +115,10 @@ export default function Home() {
           >
             <Image
               src="https://picsum.photos/seed/1/420/380"
-              alt="Sanatani Marketing"
+              alt="Sanatani Software Development"
               fill
               style={{ objectFit: 'cover', borderRadius: '16px' }}
-              data-ai-hint="marketing tradition"
+              data-ai-hint="software development"
             />
           </div>
         </div>
@@ -122,47 +128,52 @@ export default function Home() {
         <section id="services">
           <h2>What we do</h2>
           <p className="small">
-            End-to-end digital growth for religious & cultural product brands.
+            End-to-end software development services for businesses of all
+            sizes.
           </p>
           <div className="grid-3" style={{ marginTop: '12px' }}>
             <div className="card">
-              <h3>Brand Strategy</h3>
+              <h3>Custom Software Development</h3>
               <p className="small">
-                Position your brand with a story that resonates — packaging,
-                messaging and go-to-market plan tailored for spiritual
-                customers.
+                We design and build bespoke software solutions tailored to your
+                specific business needs, from enterprise systems to specialized
+                tools.
               </p>
             </div>
             <div className="card">
-              <h3>Performance Marketing</h3>
+              <h3>Web Application Development</h3>
               <p className="small">
-                ROAS-focused ad campaigns on Meta, Google & WhatsApp. A/B
-                testing, creative optimization and conversion tracking.
+                Building powerful, scalable, and secure web applications using
+                modern frameworks like React, Next.js, and Node.js.
               </p>
             </div>
             <div className="card">
-              <h3>Shop & CRO</h3>
+              <h3>Mobile App Development</h3>
               <p className="small">
-                Product page optimization, fast checkout flows and trust
-                signals (reviews, badges) to increase conversions.
+                Creating beautiful and performant native and cross-platform
+                mobile applications for both iOS and Android platforms.
               </p>
             </div>
             <div className="card">
-              <h3>Instagram Marketing</h3>
+              <h3>Cloud & DevOps</h3>
               <p className="small">
-                Engage your audience with beautiful reels, stories, and carousel posts. We run targeted ad campaigns to grow your followers and drive sales from your spiritual and artisanal products.
+                Cloud infrastructure setup, CI/CD pipelines, and automated
+                deployments to ensure your applications are scalable and
+                reliable.
               </p>
             </div>
             <div className="card">
-              <h3>Facebook Marketing</h3>
+              <h3>UI/UX Design</h3>
               <p className="small">
-                Build a strong community around your brand with Facebook groups and pages. We create and share content that resonates with your audience, and use Facebook Ads to reach new customers.
+                Designing intuitive and engaging user interfaces that provide a
+                seamless user experience and enhance your brand.
               </p>
             </div>
             <div className="card">
-              <h3>WordPress & E-commerce</h3>
+              <h3>Software Maintenance & Support</h3>
               <p className="small">
-                We build and optimize beautiful WordPress and WooCommerce stores. From custom themes to payment gateway integration, we create seamless shopping experiences for your customers.
+                Providing ongoing maintenance, updates, and support to ensure
+                your software runs smoothly and remains secure.
               </p>
             </div>
           </div>
@@ -174,36 +185,46 @@ export default function Home() {
             <div className="card">
               <Image
                 src="https://picsum.photos/seed/2/800/600"
-                alt="Campaign 1"
+                alt="Project 1"
                 width={800}
                 height={600}
-                data-ai-hint="campaign festive"
+                data-ai-hint="saas dashboard"
               />
-              <h4 style={{ marginTop: '10px' }}>Festive Campaign — 4x ROAS</h4>
-              <div className="small">Social-first reels & catalog ads.</div>
+              <h4 style={{ marginTop: '10px' }}>
+                Enterprise SaaS Platform
+              </h4>
+              <div className="small">
+                Full-stack web app with multi-tenancy.
+              </div>
             </div>
             <div className="card">
               <Image
                 src="https://picsum.photos/seed/3/800/600"
-                alt="Campaign 2"
+                alt="Project 2"
                 width={800}
                 height={600}
-                data-ai-hint="local SEO"
+                data-ai-hint="mobile app"
               />
-              <h4 style={{ marginTop: '10px' }}>Local SEO for Temple Store</h4>
-              <div className="small">Driving footfall & phone orders.</div>
+              <h4 style={{ marginTop: '10px' }}>
+                E-commerce Mobile App
+              </h4>
+              <div className="small">
+                Cross-platform app for iOS and Android.
+              </div>
             </div>
             <div className="card">
               <Image
                 src="https://picsum.photos/seed/4/800/600"
-                alt="Campaign 3"
+                alt="Project 3"
                 width={800}
                 height={600}
-                data-ai-hint="whatsapp marketing"
+                data-ai-hint="data visualization"
               />
-              <h4 style={{ marginTop: '10px' }}>WhatsApp Funnel</h4>
+              <h4 style={{ marginTop: '10px' }}>
+                Data Visualization Dashboard
+              </h4>
               <div className="small">
-                Automated cart recovery & product bundles.
+                Real-time analytics and reporting interface.
               </div>
             </div>
           </div>
@@ -213,17 +234,19 @@ export default function Home() {
           <h2 style={{ marginTop: '22px' }}>What clients say</h2>
           <div className="testimonials">
             <div className="testimonial">
-              <strong>Rama Stores</strong>
+              <strong>Innovate Inc.</strong>
               <p className="small">
-                &quot;Their Diwali campaign doubled our sales and improved our
-                ROAS. Creative that actually speaks to our customers.&quot;
+                &quot;The custom CRM they built has revolutionized our sales
+                process. The team was professional, responsive, and delivered
+                on time.&quot;
               </p>
             </div>
             <div className="testimonial">
-              <strong>Shakti Handicrafts</strong>
+              <strong>Data Corp.</strong>
               <p className="small">
-                &quot;Local SEO work brought steady orders — shop visits
-                increased by 38% in 3 months.&quot;
+                &quot;Sanatani Software helped us migrate our legacy systems to the
+                cloud, significantly improving performance and reducing
+                costs.&quot;
               </p>
             </div>
           </div>
@@ -231,25 +254,25 @@ export default function Home() {
 
         <section id="contact" className="contact">
           <div>
-            <h2>Request a proposal</h2>
+            <h2>Request a quote</h2>
             <p className="small">
-              Tell us about your store — we’ll suggest a growth plan and a
-              30-day campaign blueprint.
+              Tell us about your project — we’ll provide a detailed proposal
+              and a project blueprint.
             </p>
             <form id="leadForm" onSubmit={submitLead}>
               <input id="name" placeholder="Your name" required />
               <input id="email" type="email" placeholder="Email" required />
               <input id="phone" placeholder="Phone (optional)" />
               <select id="budget">
-                <option value="">Estimated monthly ad budget</option>
-                <option>Under ₹10k</option>
-                <option>₹10k–50k</option>
-                <option>₹50k+</option>
+                <option value="">Estimated project budget</option>
+                <option>Under $10k</option>
+                <option>$10k–$50k</option>
+                <option>$50k+</option>
               </select>
               <textarea
                 id="message"
                 rows={4}
-                placeholder="Tell us about your store or campaign goals"
+                placeholder="Tell us about your project goals and requirements"
               ></textarea>
               <button className="btn btn-primary" type="submit">
                 Send Request
@@ -268,15 +291,15 @@ export default function Home() {
           </div>
 
           <aside className="card" style={{ height: 'fit-content' }}>
-            <h3>Why Sanatani Shop Growth</h3>
+            <h3>Why Sanatani Software</h3>
             <ul className="small">
-              <li>Specialised audience targeting for devotional shoppers</li>
-              <li>Creative direction rooted in culture and respect</li>
-              <li>Transparent reporting and clear KPIs</li>
+              <li>Agile development process for faster delivery</li>
+              <li>Dedicated project management and transparent communication</li>
+              <li>Focus on clean code, scalability, and security</li>
             </ul>
             <div style={{ marginTop: '12px' }}>
-              <strong>Free 30-min consult</strong> — book after you submit the
-              form.
+              <strong>Free 30-min consultation</strong> — book after you submit
+              the form.
             </div>
           </aside>
         </section>
@@ -294,12 +317,14 @@ export default function Home() {
           }}
         >
           <div>
-            <div style={{ fontWeight: 800 }}>Sanatani Shop</div>
+            <div style={{ fontWeight: 800 }}>Sanatani Software</div>
             <div className="small">
-              Digital marketing for spiritual & handcrafted brands
+              Custom Software Solutions for Modern Business
             </div>
           </div>
-          <div className="small">© Sanatani Shop — All rights reserved</div>
+          <div className="small">
+            © Sanatani Software — All rights reserved
+          </div>
         </div>
       </footer>
     </>
