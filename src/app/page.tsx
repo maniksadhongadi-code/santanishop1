@@ -53,12 +53,13 @@ export default function Home() {
       }, 1000);
     }
   };
-
+  
   const handleCurrencyChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCurrency(event.target.value);
   };
 
   const convertedAmount = (baseAmount * conversionRates[selectedCurrency]).toFixed(2);
+
 
   return (
     <>
@@ -101,8 +102,8 @@ export default function Home() {
                 >
                   Categories
                 </div>
+                 <div className="tab-indicator" style={{ transform: `translateX(${activeTab === 'menu' ? '0%' : 'calc(100% - 5px)'})` }}></div>
               </div>
-              <div className="tab-indicator" style={{ transform: `translateX(${activeTab === 'menu' ? '0%' : '100%'})` }}></div>
               <div className="tab-content">
                 <div className={`tab-pane ${activeTab === 'menu' ? 'active' : ''}`}>
                   <div className={`search-box active`}>
