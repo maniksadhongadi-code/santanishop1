@@ -132,7 +132,7 @@ export default function Home() {
             }}
           >
             <Image
-              src="https://iili.io/KPdWQgs.md.jpg"
+              src="https://iili.io/KPZWptV.md.jpg"
               alt="Digital Marketing Logo"
               fill
               style={{ objectFit: 'cover', borderRadius: '16px' }}
