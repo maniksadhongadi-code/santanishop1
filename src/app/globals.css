@@ -131,6 +131,12 @@ body {
   background-image: url(https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170);
 }
 
+.page .content {
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+}
+
 .page .title {
   font-size: 5rem;
   color: #fff;
@@ -139,13 +145,11 @@ body {
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 }
 
-.page .content {
+.page .content p {
   font-size: 1.2rem;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  max-width: 800px;
-  text-align: center;
-  padding: 20px;
+  margin-top: 20px;
 }
 
 

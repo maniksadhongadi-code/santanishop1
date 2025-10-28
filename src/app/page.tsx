@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 export default function Home() {
   const [isNavActive, setIsNavActive] = useState(false);
@@ -61,7 +61,14 @@ export default function Home() {
             key={page.name}
             className={`page ${page.className} ${pageIndex === index ? 'active' : ''}`}
           >
-            {page.name === 'Notes' ? (
+            {page.name === 'Home' ? (
+              <div className="content">
+                <h1 className="title">Marketing with WordPress</h1>
+                <p>
+                  WordPress is a powerful platform for digital marketing. It allows for the creation of SEO-friendly websites and blogs, integration with social media, and the ability to run email marketing campaigns, all from a single dashboard.
+                </p>
+              </div>
+            ) : page.name === 'Notes' ? (
               <div className="content">
                 <h1 className="title">Digital Marketing</h1>
                 <p>
@@ -69,7 +76,10 @@ export default function Home() {
                 </p>
               </div>
             ) : (
-              <p className="title">{page.name === 'About' ? 'Frontend Developer' : page.name}</p>
+              <div className="content">
+                <h1 className="title">Frontend Developer</h1>
+                <p>I build beautiful and responsive web applications.</p>
+              </div>
             )}
           </section>
         ))}
