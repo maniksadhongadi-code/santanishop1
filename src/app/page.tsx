@@ -49,8 +49,8 @@ const marketingServices = [
 
 const pages = [
   { name: 'Home', className: 'home' },
-  { name: 'Shop', className: 'shop-bg' }, // You may want a different background for the shop
-  { name: 'Notes', className: 'notes' },
+  { name: 'Shop', className: 'shop-bg' },
+  { name: 'Blog', className: 'blog-bg' },
   { name: 'About', className: 'about' },
 ];
 
@@ -191,15 +191,14 @@ export default function Home() {
                       ))}
                     </div>
                 </div>
-            ) : page.name === 'Notes' ? (
+            ) : page.name === 'Blog' ? (
               <div className="content">
-                <h1 className="title">Digital Marketing</h1>
+                <h1 className="title">Our Digital Marketing Philosophy</h1>
                 <p>
-                  Digital marketing encompasses all marketing efforts that use
-                  an electronic device or the internet. Businesses leverage
-                  digital channels such as search engines, social media, email,
-                  and their websites to connect with current and prospective
-                  customers.
+                  At Sanatani Shop, we believe digital marketing is both an art and a science. Our approach is rooted in years of experience, combining data-driven strategies with creative storytelling to build authentic connections. We don’t just run campaigns; we build ecosystems where brands can thrive. Each project is a partnership, and we immerse ourselves in your vision to craft bespoke strategies that deliver measurable results and lasting impact.
+                </p>
+                <p>
+                  Our team is our greatest asset. Every employee at Sanatani Shop is a dedicated specialist who handles their role with meticulous care and a passion for excellence. From our SEO analysts to our content creators, we foster a culture of ownership and collaboration. We believe that the best results come from a team that is not only highly skilled but also deeply invested in the success of our clients. That’s the Sanatani Shop difference.
                 </p>
               </div>
             ) : ( // About Page
@@ -246,7 +245,7 @@ export default function Home() {
         <button className="jelly-button" onClick={() => handleLinkClick(0)}>Home</button>
         <button className="jelly-button" onClick={() => setShowCategoryCube(true)}>Categories</button>
         <button className="jelly-button" onClick={() => handleLinkClick(1)}>Shop</button>
-        <button className="jelly-button">Blog</button>
+        <button className="jelly-button" onClick={() => handleLinkClick(2)}>Blog</button>
         <button className="jelly-button">FAQs</button>
       </div>
     </>
