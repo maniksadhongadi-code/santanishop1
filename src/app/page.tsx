@@ -6,6 +6,7 @@ import {
   Facebook,
   Instagram,
 } from 'lucide-react';
+import Link from 'next/link';
 
 // A simple component for the WhatsApp icon as it's not in lucide-react
 const WhatsAppIcon = () => (
@@ -300,7 +301,7 @@ export default function Home() {
           <div>
             <h2>Our Story</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
-              <a href="#" className="small">About Us</a>
+              <Link href="/about" className="small">About Us</Link>
               <a href="#" className="small">Our Facility</a>
               <a href="#" className="small">Commitment to Quality</a>
               <a href="#" className="small">Contract Manufacturing</a>
