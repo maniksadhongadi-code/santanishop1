@@ -86,21 +86,21 @@ export default function Home() {
 
             <div className="services">
               <div className="service">
-                <h4>Web Development</h4>
+                <h4>Innovative Solutions</h4>
                 <div className="small">
-                  Scalable and secure web applications
+                  We deliver innovative solutions that blend creativity and technology, helping businesses grow, adapt, and thrive in a fast-evolving digital world.
                 </div>
               </div>
               <div className="service">
-                <h4>Mobile Apps</h4>
+                <h4>Graphic Design</h4>
                 <div className="small">
-                  Native and cross-platform iOS & Android apps
+                  Our graphic design services bring your brand to life with captivating visuals, unique concepts, and impactful storytelling that inspire engagement.
                 </div>
               </div>
               <div className="service">
-                <h4>Cloud Solutions</h4>
+                <h4>SEO Optimization</h4>
                 <div className="small">
-                  Infrastructure, DevOps, and cloud migrations
+                  We provide expert SEO optimization to boost visibility, drive organic traffic, and position your business at the top of search results.
                 </div>
               </div>
             </div>
