@@ -10,7 +10,12 @@ import {
   X,
   LogIn,
   ShoppingBasket,
-  HeartHandshake
+  HeartHandshake,
+  BookOpen,
+  Download,
+  Gift,
+  Terminal,
+  Wrench
 } from 'lucide-react';
 
 const conversionRates: { [key: string]: number } = {
@@ -105,7 +110,7 @@ export default function Home() {
                 >
                   Categories
                 </div>
-                 <div className="tab-indicator" style={{ transform: `translateX(${activeTab === 'menu' ? '0%' : 'calc(100% - 5px)'})` }}></div>
+                 <div className="tab-indicator" style={{ transform: `translateX(${activeTab === 'menu' ? '0%' : 'calc(100%)'})` }}></div>
               </div>
               <div className="tab-content">
                 <div className={`tab-pane ${activeTab === 'menu' ? 'active' : ''}`}>
@@ -134,7 +139,13 @@ export default function Home() {
                   </ul>
                 </div>
                 <div className={`tab-pane ${activeTab === 'categories' ? 'active' : ''}`}>
-                   <p>Category content goes here.</p>
+                   <ul className="menu-options">
+                    <li><BookOpen size={16} /> Books & Audio</li>
+                    <li><Download size={16} /> Digital Products</li>
+                    <li><Gift size={16} /> For You</li>
+                    <li><Terminal size={16} /> Software</li>
+                    <li><Wrench size={16} /> Tools & More</li>
+                  </ul>
                 </div>
               </div>
             </div>
