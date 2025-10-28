@@ -1,7 +1,5 @@
 'use client';
 
-import { Wrench } from 'lucide-react';
-
 const WhatsAppIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -49,33 +47,7 @@ const PinterestIcon = () => (
 
 export default function Home() {
   return (
-    <>
-    <main className="maintenance-page flex min-h-screen flex-col items-center justify-center p-8 font-sans">
-      <div className="text-center text-gray-800 flex-grow flex flex-col items-center justify-center">
-        <h1 className="text-5xl font-bold tracking-tight">
-          WE&apos;RE MAKING
-          <br />
-          IMPROVEMENTS!
-        </h1>
-
-        <div className="my-12 flex justify-center">
-            <div className="relative flex h-36 w-36 items-center justify-center rounded-full border-2 border-dashed border-yellow-400">
-                <Wrench className="h-16 w-16 text-yellow-500" />
-            </div>
-        </div>
-        
-        <p className="mt-4 text-lg text-gray-600">
-          Our website is getting a refresh and
-          <br />
-          will be back shortly
-        </p>
-
-        <button className="mt-8 rounded-md border border-yellow-500 bg-white px-8 py-3 font-semibold text-gray-800 shadow-md transition-colors hover:bg-gray-100">
-            STAY UPDATED
-        </button>
-      </div>
-    </main>
-    <footer className="footer-section bg-gray-800 text-white">
+    <div className="bg-gray-800 text-white font-sans">
         <div className="container mx-auto px-6 py-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                 <div className="lg:col-span-2">
@@ -130,7 +102,6 @@ export default function Home() {
                 </div>
             </div>
         </div>
-    </footer>
-    </>
+    </div>
   );
 }
