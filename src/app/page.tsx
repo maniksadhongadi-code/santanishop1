@@ -6,11 +6,13 @@ import {
   Heart,
   ShoppingCart,
   ChevronDown,
+  Search,
 } from 'lucide-react';
 
 export default function Home() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const overlayRef = useRef<HTMLSpanElement>(null);
 
   const pages = [
@@ -45,22 +47,38 @@ export default function Home() {
     <>
       <nav className="navbar">
         <div className="header-left">
-          <button className="header-button">
-            <User size={20} />
-            <span>Login/Register</span>
-          </button>
-          <button className="header-button">
-            <GitCompare size={20} />
-          </button>
-          <button className="header-button">
-            <Heart size={20} />
-          </button>
-          <button className="header-button">
-            <ShoppingCart size={20} />
-          </button>
-          <button className="header-button">
-            <ChevronDown size={20} />
-          </button>
+          <div className="header-buttons-row">
+            <button className="header-button">
+              <User size={20} />
+              <span>Login/Register</span>
+            </button>
+            <button className="header-button">
+              <GitCompare size={20} />
+            </button>
+            <button className="header-button">
+              <Heart size={20} />
+            </button>
+            <button className="header-button">
+              <ShoppingCart size={20} />
+            </button>
+            <button className="header-button">
+              <ChevronDown size={20} />
+            </button>
+          </div>
+          <div
+            className={`search-box ${isSearchExpanded ? 'active' : ''}`}
+            onMouseEnter={() => setIsSearchExpanded(true)}
+            onMouseLeave={() => setIsSearchExpanded(false)}
+          >
+            <input type="text" placeholder="Search" />
+            <div className="search-icon">
+              <Search size={20} />
+            </div>
+            <div className="cancel-icon">
+              <Search size={20} />
+            </div>
+            <div className="search-data"></div>
+          </div>
         </div>
 
         <h1 className="shop-title">SANATANI SHOP</h1>
