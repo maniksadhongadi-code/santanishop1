@@ -79,8 +79,8 @@ export default function Home() {
               </div>
             ) : (
               <div className="content">
-                <h1 className="title">Frontend Developer</h1>
-                <p>I build beautiful and responsive web applications.</p>
+                <h1 className="title">Product Marketing Strategies</h1>
+                <p>We craft tailored product marketing strategies that resonate with your target audience. Our approach integrates SEO, content marketing, and social media to build brand awareness, drive engagement, and boost conversions. We focus on data-driven insights to optimize campaigns and deliver measurable results.</p>
               </div>
             )}
           </section>
