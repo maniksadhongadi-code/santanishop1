@@ -8,16 +8,6 @@ export default function Home() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const submitLead = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const leadMsg = document.getElementById('leadMsg');
-    const form = document.getElementById('leadForm') as HTMLFormElement;
-    if (leadMsg) {
-      leadMsg.style.display = 'block';
-    }
-    form?.reset();
-  };
-
   return (
     <>
       <header>
@@ -31,7 +21,7 @@ export default function Home() {
               style={{ borderRadius: '12px' }}
             />
             <div>
-              <div style={{ fontWeight: 800 }}>Sanatani Shop</div>
+              <div style={{ fontWeight: 800 }}>SanataniShop</div>
               <div style={{ fontSize: '12px', opacity: 0.95 }}>
                 Creative Digital Services
               </div>
@@ -266,39 +256,13 @@ export default function Home() {
 
         <section id="contact" className="contact">
           <div>
-            <h2>Request a quote</h2>
-            <p className="small">
-              Tell us about your project — we’ll provide a detailed proposal
-              and a project blueprint.
-            </p>
-            <form id="leadForm" onSubmit={submitLead}>
-              <input id="name" placeholder="Your name" required />
-              <input id="email" type="email" placeholder="Email" required />
-              <input id="phone" placeholder="Phone (optional)" />
-              <select id="budget">
-                <option value="">Estimated project budget</option>
-                <option>Under $10k</option>
-                <option>$10k–$50k</option>
-                <option>$50k+</option>
-              </select>
-              <textarea
-                id="message"
-                rows={4}
-                placeholder="Tell us about your project goals and requirements"
-              ></textarea>
-              <button className="btn btn-primary" type="submit">
-                Send Request
-              </button>
-            </form>
-            <div
-              id="leadMsg"
-              style={{
-                marginTop: '10px',
-                color: 'green',
-                display: 'none',
-              }}
-            >
-              Thanks — we will email a proposal within 24 hours.
+            <h2>Contact Us</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
+              <a href="#" className="small">Contact Us</a>
+              <a href="#" className="small">Privacy Policy</a>
+              <a href="#" className="small">Terms and Conditions</a>
+              <a href="#" className="small">Refund Policy</a>
+              <a href="#" className="small">Disclaimer</a>
             </div>
           </div>
 
