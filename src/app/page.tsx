@@ -63,7 +63,9 @@ export default function Home() {
 
         <div className="container hero">
           <div className="hero-card">
-            <h1>Innovative Software for Modern Businesses</h1>
+            <h1>
+              <strong>WE'RE OFFERING CREATIVE DIGITAL SERVICES</strong>
+            </h1>
             <p>
               We build custom software, web applications, and mobile apps that
               solve complex problems and drive business growth. Let us turn
