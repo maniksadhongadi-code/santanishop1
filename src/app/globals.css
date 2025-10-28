@@ -70,10 +70,14 @@ body {
 
 
 .shop-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   color: #fff;
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
+  top: 1rem;
 }
 
 .toggle-btn {
