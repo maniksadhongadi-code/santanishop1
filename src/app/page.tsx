@@ -25,7 +25,7 @@ export default function Home() {
           <div className="brand">
             <div className="logo">SS</div>
             <div>
-              <div style={{ fontWeight: 800 }}>Sanatani Software</div>
+              <div style={{ fontWeight: 800 }}>Sanatani Shop</div>
               <div style={{ fontSize: '12px', opacity: 0.95 }}>
                 Creative Digital Services
               </div>
@@ -115,7 +115,7 @@ export default function Home() {
           >
             <Image
               src="https://picsum.photos/seed/1/420/380"
-              alt="Sanatani Software Development"
+              alt="Sanatani Shop Development"
               fill
               style={{ objectFit: 'cover', borderRadius: '16px' }}
               data-ai-hint="software development"
@@ -244,7 +244,7 @@ export default function Home() {
             <div className="testimonial">
               <strong>Data Corp.</strong>
               <p className="small">
-                &quot;Sanatani Software helped us migrate our legacy systems to the
+                &quot;Sanatani Shop helped us migrate our legacy systems to the
                 cloud, significantly improving performance and reducing
                 costs.&quot;
               </p>
@@ -291,7 +291,7 @@ export default function Home() {
           </div>
 
           <aside className="card" style={{ height: 'fit-content' }}>
-            <h3>Why Sanatani Software</h3>
+            <h3>Why Sanatani Shop</h3>
             <ul className="small">
               <li>Agile development process for faster delivery</li>
               <li>Dedicated project management and transparent communication</li>
@@ -317,13 +317,13 @@ export default function Home() {
           }}
         >
           <div>
-            <div style={{ fontWeight: 800 }}>Sanatani Software</div>
+            <div style={{ fontWeight: 800 }}>Sanatani Shop</div>
             <div className="small">
               Creative Digital Services
             </div>
           </div>
           <div className="small">
-            © Sanatani Software — All rights reserved
+            © Sanatani Shop — All rights reserved
           </div>
         </div>
       </footer>
