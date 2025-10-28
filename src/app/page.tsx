@@ -147,6 +147,24 @@ export default function Home() {
                 signals (reviews, badges) to increase conversions.
               </p>
             </div>
+            <div className="card">
+              <h3>Instagram Marketing</h3>
+              <p className="small">
+                Engage your audience with beautiful reels, stories, and carousel posts. We run targeted ad campaigns to grow your followers and drive sales from your spiritual and artisanal products.
+              </p>
+            </div>
+            <div className="card">
+              <h3>Facebook Marketing</h3>
+              <p className="small">
+                Build a strong community around your brand with Facebook groups and pages. We create and share content that resonates with your audience, and use Facebook Ads to reach new customers.
+              </p>
+            </div>
+            <div className="card">
+              <h3>WordPress & E-commerce</h3>
+              <p className="small">
+                We build and optimize beautiful WordPress and WooCommerce stores. From custom themes to payment gateway integration, we create seamless shopping experiences for your customers.
+              </p>
+            </div>
           </div>
         </section>
 
