@@ -304,6 +304,16 @@ export default function Home() {
               <a href="#" className="small">Refund Policy</a>
               <a href="#" className="small">Disclaimer</a>
             </div>
+            <div style={{ marginTop: '28px' }}>
+              <h2>Quick Links</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
+                <a href="#" className="small">Blog</a>
+                <a href="#" className="small">Subscription</a>
+                <a href="#" className="small">Announcements</a>
+                <a href="#" className="small">FAQ's</a>
+                <a href="#" className="small">Shipping and Delivery</a>
+              </div>
+            </div>
           </div>
 
           <div>
