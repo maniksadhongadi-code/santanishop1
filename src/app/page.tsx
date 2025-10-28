@@ -15,6 +15,7 @@ export default function Home() {
   const [pageIndex, setPageIndex] = useState(0);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [isSecondSearchExpanded, setIsSecondSearchExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('menu');
   const overlayRef = useRef<HTMLSpanElement>(null);
 
   const pages = [
@@ -70,19 +71,40 @@ export default function Home() {
               <ChevronDown size={20} />
             </button>
           </div>
-          <div className={`search-box ${isSearchExpanded ? 'active' : ''}`}>
-            <input type="text" placeholder="Search" />
-            <div className="search-icon">
-              <Search size={20} />
+
+          <div className={`search-box-container ${isSearchExpanded ? 'active' : ''}`}>
+            <div className="tab-slider">
+              <div className="tab-header">
+                <div
+                  className={`tab-item ${activeTab === 'menu' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('menu')}
+                >
+                  Menu
+                </div>
+                <div
+                  className={`tab-item ${activeTab === 'categories' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('categories')}
+                >
+                  Categories
+                </div>
+              </div>
+              <div className="tab-indicator" style={{ transform: `translateX(${activeTab === 'menu' ? '0%' : '100%'})` }}></div>
+              <div className="tab-content">
+                <div className={`tab-pane ${activeTab === 'menu' ? 'active' : ''}`}>
+                  <div className={`search-box active`}>
+                    <input type="text" placeholder="Search in Menu..." />
+                    <div className="search-icon">
+                      <Search size={20} />
+                    </div>
+                  </div>
+                </div>
+                <div className={`tab-pane ${activeTab === 'categories' ? 'active' : ''}`}>
+                   <p>Category content goes here.</p>
+                </div>
+              </div>
             </div>
-            <div
-              className="cancel-icon"
-              onClick={() => setIsSearchExpanded(false)}
-            >
-              <X size={20} />
-            </div>
-            <div className="search-data"></div>
           </div>
+          
           <div className={`search-box ${isSecondSearchExpanded ? 'active' : ''}`} onMouseEnter={() => setIsSecondSearchExpanded(true)} onMouseLeave={() => setIsSecondSearchExpanded(false)}>
             <input type="text" placeholder="Search..." />
             <div className="search-icon">
