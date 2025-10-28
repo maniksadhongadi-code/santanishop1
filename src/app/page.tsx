@@ -305,13 +305,14 @@ export default function Home() {
           <aside className="card" style={{ height: 'fit-content' }}>
             <h3>Why Sanatani Shop</h3>
             <ul className="small">
-              <li>Agile development process for faster delivery</li>
-              <li>Dedicated project management and transparent communication</li>
-              <li>Focus on clean code, scalability, and security</li>
+              <li>Creative & Strategic Approach — We combine creativity with data-driven strategies to deliver impactful marketing results.</li>
+              <li>Dedicated Marketing Experts — A passionate team focused on helping your brand grow across every digital platform.</li>
+              <li>Customized Campaigns — Every strategy is tailored to your business goals, audience, and budget for maximum ROI.</li>
+              <li>Transparent Communication — We keep you informed at every step with clear reports and performance updates.</li>
+              <li>Result-Oriented Solutions — Our goal is simple — to boost your visibility, engagement, and conversions.</li>
             </ul>
             <div style={{ marginTop: '12px' }}>
-              <strong>Free 30-min consultation</strong> — book after you submit
-              the form.
+              <strong>Free Marketing Consultation</strong> — Get a complimentary 30-minute session after submitting your inquiry form.
             </div>
           </aside>
         </section>
