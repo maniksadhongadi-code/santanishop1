@@ -14,6 +14,7 @@ export default function Home() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  const [isSecondSearchExpanded, setIsSecondSearchExpanded] = useState(false);
   const overlayRef = useRef<HTMLSpanElement>(null);
 
   const pages = [
@@ -82,6 +83,16 @@ export default function Home() {
             </div>
             <div className="search-data"></div>
           </div>
+          <div className={`search-box ${isSecondSearchExpanded ? 'active' : ''}`} onMouseEnter={() => setIsSecondSearchExpanded(true)} onMouseLeave={() => setIsSecondSearchExpanded(false)}>
+            <input type="text" placeholder="Search..." />
+            <div className="search-icon">
+                <Search size={20} />
+            </div>
+            <div className="cancel-icon" onClick={() => setIsSecondSearchExpanded(false)}>
+                <X size={20} />
+            </div>
+            <div className="search-data"></div>
+           </div>
         </div>
 
         <h1 className="shop-title">SANATANI SHOP</h1>
@@ -149,7 +160,6 @@ export default function Home() {
                   content marketing, and social media to build brand
                   awareness, drive engagement, and boost conversions. We focus
                   on data-driven insights to optimize campaigns and deliver
-
                   measurable results.
                 </p>
               </div>
