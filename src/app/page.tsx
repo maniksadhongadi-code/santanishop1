@@ -115,11 +115,11 @@ export default function Home() {
             }}
           >
             <Image
-              src="https://picsum.photos/seed/spiritual/420/380"
-              alt="Sanatani Shop"
+              src="https://picsum.photos/seed/digitalmarketinglogo/420/380"
+              alt="Digital Marketing Logo"
               fill
               style={{ objectFit: 'cover', borderRadius: '16px' }}
-              data-ai-hint="spiritual art"
+              data-ai-hint="digital marketing logo"
             />
           </div>
         </div>
