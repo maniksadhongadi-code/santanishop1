@@ -27,7 +27,7 @@ export default function Home() {
             <div>
               <div style={{ fontWeight: 800 }}>Sanatani Software</div>
               <div style={{ fontSize: '12px', opacity: 0.95 }}>
-                Custom Software Solutions for Modern Business
+                Creative Digital Services
               </div>
             </div>
           </div>
@@ -319,7 +319,7 @@ export default function Home() {
           <div>
             <div style={{ fontWeight: 800 }}>Sanatani Software</div>
             <div className="small">
-              Custom Software Solutions for Modern Business
+              Creative Digital Services
             </div>
           </div>
           <div className="small">
