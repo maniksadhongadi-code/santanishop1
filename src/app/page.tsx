@@ -52,7 +52,6 @@ export default function Home() {
   const [pageIndex, setPageIndex] = useState(0);
   const [isSecondSearchExpanded, setIsSecondSearchExpanded] = useState(false);
   const [showCategoryCube, setShowCategoryCube] = useState(false);
-  const [showShop, setShowShop] = useState(false);
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
 
   const overlayRef = useRef<HTMLSpanElement>(null);
@@ -96,13 +95,13 @@ export default function Home() {
   useEffect(() => {
     const pageContainer = pageContainerRef.current;
     if (pageContainer) {
-      if (showCategoryCube || showShop) {
+      if (showCategoryCube) {
         pageContainer.classList.add('blur');
       } else {
         pageContainer.classList.remove('blur');
       }
     }
-  }, [showCategoryCube, showShop]);
+  }, [showCategoryCube]);
 
 
   return (
@@ -171,18 +170,18 @@ export default function Home() {
             }`}
           >
             {page.name === 'Home' ? (
-              <div className="content">
-                <h1 className="title">Welcome to SANATANI SHOP</h1>
-                <p>
-                  At SANATANI SHOP, we empower your business by leveraging the
-                  full potential of digital marketing. We specialize in
-                  creating dynamic, engaging online experiences that connect you
-                  with your audience and drive growth. From SEO and social
-
-                  media strategies to complete WordPress solutions, we are your
-                  dedicated partner in navigating the digital landscape.
-                </p>
-              </div>
+                <div className="shop-container">
+                    <h2>Digital Marketing Services</h2>
+                    <div className="services-grid">
+                      {marketingServices.map((service, index) => (
+                        <div key={index} className="service-card">
+                          {service.icon}
+                          <h3>{service.title}</h3>
+                          <p>{service.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                </div>
             ) : page.name === 'Notes' ? (
               <div className="content">
                 <h1 className="title">Digital Marketing</h1>
@@ -234,29 +233,8 @@ export default function Home() {
         </div>
       )}
 
-      {showShop && (
-        <div className="shop-overlay">
-          <button className="close-shop-btn" onClick={() => setShowShop(false)}>
-            <X size={30} />
-          </button>
-          <div className="shop-container">
-            <h2>Digital Marketing Services</h2>
-            <div className="services-grid">
-              {marketingServices.map((service, index) => (
-                <div key={index} className="service-card">
-                  {service.icon}
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className="bottom-nav">
         <button className="jelly-button" onClick={() => setShowCategoryCube(true)}>Categories</button>
-        <button className="jelly-button" onClick={() => setShowShop(true)}>Shop</button>
         <button className="jelly-button">Blog</button>
         <button className="jelly-button">FAQs</button>
       </div>
