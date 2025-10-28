@@ -127,54 +127,57 @@ export default function Home() {
 
       <main className="container">
         <section id="services">
-          <h2>What we do</h2>
+          <h2>What We Do</h2>
           <p className="small">
-            End-to-end software development services for businesses of all
-            sizes.
+            Comprehensive digital marketing solutions designed to build your brand, increase visibility, and drive measurable growth for businesses of all sizes.
           </p>
           <div className="grid-3" style={{ marginTop: '12px' }}>
             <div className="card">
-              <h3>Custom Software Development</h3>
+              <h3>Brand Strategy & Creative Design</h3>
               <p className="small">
-                We design and build bespoke software solutions tailored to your
-                specific business needs, from enterprise systems to specialized
-                tools.
+                We craft unique brand identities, logos, and visual content that capture attention and communicate your message effectively across all digital platforms.
               </p>
             </div>
             <div className="card">
-              <h3>Web Application Development</h3>
+              <h3>Website Design & Development</h3>
               <p className="small">
-                Building powerful, scalable, and secure web applications using
-                modern frameworks like React, Next.js, and Node.js.
+                Designing and developing responsive, SEO-friendly websites that showcase your brand, attract visitors, and convert them into loyal customers.
               </p>
             </div>
             <div className="card">
-              <h3>Mobile App Development</h3>
+              <h3>Search Engine Optimization (SEO)</h3>
               <p className="small">
-                Creating beautiful and performant native and cross-platform
-                mobile applications for both iOS and Android platforms.
+                Optimizing your online presence through data-driven SEO strategies to improve visibility, increase traffic, and boost your search rankings.
               </p>
             </div>
             <div className="card">
-              <h3>Cloud & DevOps</h3>
+              <h3>Social Media Marketing</h3>
               <p className="small">
-                Cloud infrastructure setup, CI/CD pipelines, and automated
-                deployments to ensure your applications are scalable and
-                reliable.
+                Building your brand’s community across social platforms with engaging content, campaigns, and targeted ads that drive real engagement and growth.
               </p>
             </div>
             <div className="card">
-              <h3>UI/UX Design</h3>
+              <h3>Content Creation & Marketing</h3>
               <p className="small">
-                Designing intuitive and engaging user interfaces that provide a
-                seamless user experience and enhance your brand.
+                Creating compelling content — from blogs to videos — that informs, inspires, and converts audiences while enhancing your digital presence.
               </p>
             </div>
             <div className="card">
-              <h3>Software Maintenance & Support</h3>
+              <h3>Pay-Per-Click (PPC) Advertising</h3>
               <p className="small">
-                Providing ongoing maintenance, updates, and support to ensure
-                your software runs smoothly and remains secure.
+                Managing high-performing ad campaigns on Google, Meta, and other platforms to maximize ROI and reach the right audience effectively.
+              </p>
+            </div>
+            <div className="card">
+              <h3>Email & Automation Marketing</h3>
+              <p className="small">
+                Delivering personalized email campaigns and automation workflows to nurture leads, retain customers, and increase conversions.
+              </p>
+            </div>
+            <div className="card">
+              <h3>Analytics & Performance Optimization</h3>
+              <p className="small">
+                Tracking and analyzing campaign performance to refine strategies, boost efficiency, and ensure consistent growth and measurable success.
               </p>
             </div>
           </div>
