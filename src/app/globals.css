@@ -170,9 +170,9 @@ main {
   background: linear-gradient(180deg, #fff, #fffaf6);
 }
 
-.contact {
+.contact-grid {
   display: grid;
-  grid-template-columns: 1fr 360px;
+  grid-template-columns: 1fr 1fr 1.5fr;
   gap: 18px;
   margin-top: 28px;
 }
@@ -228,7 +228,7 @@ select {
   .testimonials {
     grid-template-columns: 1fr;
   }
-  .contact {
+  .contact-grid {
     grid-template-columns: 1fr;
   }
   nav {

@@ -38,7 +38,7 @@ const PinterestIcon = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <path d="M12 4a8 8 0 0 0-8 8c0 3.5 2.5 6.5 6 7.5V14.5h-2v-3h2V9.5c0-2 1.5-3.5 3.5-3.5h2.5v3H15c-.5 0-1 .5-1 1v2h2.5l-.5 3H14v7.5c3.5-1 6-4 6-7.5a8 8 0 0 0-8-8z" />
+    <path d="M12.04 5.22c-4.42 0-8 3.58-8 8 0 3.54 2.29 6.53 5.47 7.59.07.13.1.28.08.43l-.34 1.36c-.05.2.14.39.33.32l1.35-.48c.5-.18.98-.43 1.43-.75.45-.32.88-.7 1.28-1.12.4-.42.75-.9 1.02-1.4.27-.5.47-1.04.57-1.6.1-.56.1-1.13.01-1.69a8.03 8.03 0 0 0-8.01-8.01zm-1.65 9.22c-.22 0-.4-.18-.4-.4V9.81c0-.22.18-.4.4-.4s.4.18.4.4v4.21c0 .22-.18.4-.4.4zm.8-2.41c-.22 0-.4-.18-.4-.4V9.81c0-.22.18-.4.4-.4s.4.18.4.4v1.8c0 .22-.18.4-.4.4zm.8.8c-.22 0-.4-.18-.4-.4v-1c0-.22.18-.4.4-.4s.4.18.4.4v1c0 .22-.18.4-.4.4zm.8 1.61c-.22 0-.4-.18-.4-.4V9.81c0-.22.18-.4.4-.4s.4.18.4.4v4.21c0 .22-.18.4-.4.4z" />
   </svg>
 );
 
@@ -294,7 +294,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="contact">
+        <section id="contact" className="contact-grid">
           <div>
             <h2>Information</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
@@ -303,6 +303,17 @@ export default function Home() {
               <a href="#" className="small">Terms and Conditions</a>
               <a href="#" className="small">Refund Policy</a>
               <a href="#" className="small">Disclaimer</a>
+            </div>
+          </div>
+
+          <div>
+            <h2>Our Story</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
+              <a href="#" className="small">About Us</a>
+              <a href="#" className="small">Our Facility</a>
+              <a href="#" className="small">Commitment to Quality</a>
+              <a href="#" className="small">Contract Manufacturing</a>
+              <a href="#" className="small">Our Awards</a>
             </div>
           </div>
 
