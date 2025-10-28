@@ -236,6 +236,12 @@ export default function Home() {
           </section>
         ))}
       </header>
+       <div className="bottom-nav">
+        <button className="jelly-button">Categories</button>
+        <button className="jelly-button">Shop</button>
+        <button className="jelly-button">Blog</button>
+        <button className="jelly-button">FAQs</button>
+      </div>
     </>
   );
 }
