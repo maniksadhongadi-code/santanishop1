@@ -131,7 +131,7 @@ export default function Home() {
                 >
                   Categories
                 </div>
-                 <div className="tab-indicator" style={{ transform: `translateX(${activeTab === 'menu' ? '0%' : 'calc(100%)'})` }}></div>
+                 <div className="tab-indicator" style={{ left: activeTab === 'categories' ? 'calc(50% - 2.5px)' : '5px' }}></div>
               </div>
               <div className="tab-content">
                 <div className={`tab-pane ${activeTab === 'menu' ? 'active' : ''}`}>
@@ -208,7 +208,7 @@ export default function Home() {
         ))}
       </ul>
 
-      <header className={`page-container ${isNavActive ? 'active' : ''}`}>
+      <header className={`page-container ${isNavActive ? 'active' : ''} ${showCategoryCube ? 'blur' : ''}`}>
         <span ref={overlayRef} className="overlay"></span>
         {pages.map((page, index) => (
           <section
