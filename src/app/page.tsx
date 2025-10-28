@@ -8,6 +8,9 @@ import {
   ChevronDown,
   Search,
   X,
+  LogIn,
+  ShoppingBasket,
+  HeartHandshake
 } from 'lucide-react';
 
 const conversionRates: { [key: string]: number } = {
@@ -124,6 +127,11 @@ export default function Home() {
                       <span>{convertedAmount} {selectedCurrency}</span>
                     </div>
                   </div>
+                   <ul className="menu-options">
+                    <li><LogIn size={16} /> Account</li>
+                    <li><ShoppingBasket size={16} /> Cart</li>
+                    <li><HeartHandshake size={16} /> Wishlist</li>
+                  </ul>
                 </div>
                 <div className={`tab-pane ${activeTab === 'categories' ? 'active' : ''}`}>
                    <p>Category content goes here.</p>
