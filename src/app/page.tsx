@@ -283,7 +283,7 @@ export default function Home() {
               <Link href="/contact" className="small">Contact Us</Link>
               <a href="#" className="small">Privacy Policy</a>
               <a href="#" className="small">Terms and Conditions</a>
-              <a href="#" className="small">Refund Policy</a>
+              <Link href="/refund-policy" className="small">Refund Policy</Link>
               <a href="#" className="small">Disclaimer</a>
             </div>
             <div style={{ marginTop: '28px' }}>
