@@ -63,9 +63,9 @@ export default function Home() {
           >
             {page.name === 'Home' ? (
               <div className="content">
-                <h1 className="title">Marketing with WordPress</h1>
+                <h1 className="title">Welcome to SANATANI SHOP</h1>
                 <p>
-                  WordPress is a powerful platform for digital marketing. It allows for the creation of SEO-friendly websites and blogs, integration with social media, and the ability to run email marketing campaigns, all from a single dashboard.
+                  At SANATANI SHOP, we empower your business by leveraging the full potential of digital marketing. We specialize in creating dynamic, engaging online experiences that connect you with your audience and drive growth. From SEO and social media strategies to complete WordPress solutions, we are your dedicated partner in navigating the digital landscape.
                 </p>
               </div>
             ) : page.name === 'Notes' ? (
