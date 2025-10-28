@@ -44,7 +44,7 @@ export default function Home() {
             <div>
               <div style={{ fontWeight: 800 }}>SanataniShop</div>
               <div style={{ fontSize: '12px', opacity: 0.95 }}>
-                Creative Digital Services
+                As Marketing Agency
               </div>
             </div>
           </div>
@@ -351,7 +351,7 @@ export default function Home() {
           <div>
             <div style={{ fontWeight: 800 }}>Sanatani Shop</div>
             <div className="small">
-              Creative Digital Services
+              As Marketing Agency
             </div>
           </div>
           <div className="socials">
