@@ -204,8 +204,8 @@ body {
   position: relative;
   z-index: 2;
   color: #fff;
-  overflow-y: auto;
-  max-height: calc(100% - 16rem);
+  overflow-y: hidden;
+  max-height: 100%;
 }
 
 .page .title {
