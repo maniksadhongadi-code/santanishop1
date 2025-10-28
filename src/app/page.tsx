@@ -67,9 +67,7 @@ export default function Home() {
               <strong>WE'RE OFFERING CREATIVE DIGITAL SERVICES</strong>
             </h1>
             <p>
-              We build custom software, web applications, and mobile apps that
-              solve complex problems and drive business growth. Let us turn
-              your vision into a powerful digital solution.
+              We’re offering <strong>creative digital services</strong> designed to elevate your brand and transform your online presence. Our team blends <strong>innovation, design, and strategy</strong> to craft powerful digital experiences that connect with your audience. From <strong>branding and web development</strong> to <strong>social media marketing, SEO, and content creation</strong>, we deliver end-to-end solutions tailored to your goals. With a focus on <strong>creativity, technology, and performance</strong>, we help businesses grow, engage, and stand out in the digital world—turning ideas into impactful, measurable results.
             </p>
             <div className="cta">
               <button
