@@ -4,9 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import {
   Facebook,
-  Twitter,
   Instagram,
-  Youtube,
 } from 'lucide-react';
 
 // A simple component for the WhatsApp icon as it's not in lucide-react
@@ -25,23 +23,6 @@ const WhatsAppIcon = () => (
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
   </svg>
 );
-
-const PinterestIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M12.04 5.22c-4.42 0-8 3.58-8 8 0 3.54 2.29 6.53 5.47 7.59.07.13.1.28.08.43l-.34 1.36c-.05.2.14.39.33.32l1.35-.48c.5-.18.98-.43 1.43-.75.45-.32.88-.7 1.28-1.12.4-.42.75-.9 1.02-1.4.27-.5.47-1.04.57-1.6.1-.56.1-1.13.01-1.69a8.03 8.03 0 0 0-8.01-8.01zm-1.65 9.22c-.22 0-.4-.18-.4-.4V9.81c0-.22.18-.4.4-.4s.4.18.4.4v4.21c0 .22-.18.4-.4.4zm.8-2.41c-.22 0-.4-.18-.4-.4V9.81c0-.22.18-.4.4-.4s.4.18.4.4v1.8c0 .22-.18.4-.4.4zm.8.8c-.22 0-.4-.18-.4-.4v-1c0-.22.18-.4.4-.4s.4.18.4.4v1c0 .22-.18.4-.4.4zm.8 1.61c-.22 0-.4-.18-.4-.4V9.81c0-.22.18-.4.4-.4s.4.18.4.4v4.21c0 .22-.18.4-.4.4z" />
-  </svg>
-);
-
 
 export default function Home() {
   const scrollToSection = (id: string) => {
@@ -377,11 +358,8 @@ export default function Home() {
              <div style={{ fontWeight: 700, marginBottom: '8px' }}>Follow us</div>
              <div className="social-icons">
                 <a href="#"><Facebook size={20} /></a>
-                <a href="#"><Twitter size={20} /></a>
                 <a href="#"><Instagram size={20} /></a>
-                <a href="#"><PinterestIcon /></a>
                 <a href="#"><WhatsAppIcon /></a>
-                <a href="#"><Youtube size={20} /></a>
              </div>
           </div>
           <div>
