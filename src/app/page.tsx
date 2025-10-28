@@ -23,7 +23,13 @@ export default function Home() {
       <header>
         <div className="container top">
           <div className="brand">
-            <div className="logo">SS</div>
+            <Image
+              src="https://iili.io/KPdWQgs.md.jpg"
+              alt="Sanatani Shop Logo"
+              width={56}
+              height={56}
+              style={{ borderRadius: '12px' }}
+            />
             <div>
               <div style={{ fontWeight: 800 }}>Sanatani Shop</div>
               <div style={{ fontSize: '12px', opacity: 0.95 }}>
@@ -334,3 +340,5 @@ export default function Home() {
     </>
   );
 }
+
+    

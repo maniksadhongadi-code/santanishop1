@@ -47,18 +47,6 @@ header {
   align-items: center;
 }
 
-.logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #f59e0b, #ef4444);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  color: white;
-}
-
 nav ul {
   display: flex;
   gap: 18px;
@@ -236,3 +224,5 @@ select {
     display: none;
   }
 }
+
+    
