@@ -111,6 +111,7 @@ export default function Home() {
               borderRadius: '16px',
               minHeight: '320px',
               position: 'relative',
+              overflow: 'hidden',
             }}
           >
             <Image
