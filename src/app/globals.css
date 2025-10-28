@@ -175,7 +175,7 @@ body {
   opacity: 0;
   background-size: cover;
   background-position: center;
-  padding: 8rem 2rem 6rem; /* Adjust padding to avoid overlap with header/footer */
+  padding: 8rem 2rem 8rem; /* Adjust padding to avoid overlap with header/footer */
 }
 
 .page.active {
@@ -204,6 +204,8 @@ body {
   position: relative;
   z-index: 2;
   color: #fff;
+  overflow-y: auto;
+  max-height: calc(100% - 16rem);
 }
 
 .page .title {
