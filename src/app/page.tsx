@@ -1,32 +1,289 @@
 'use client';
 
 import Image from 'next/image';
+import React from 'react';
 
 export default function Home() {
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const submitLead = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const leadMsg = document.getElementById('leadMsg');
+    const form = document.getElementById('leadForm') as HTMLFormElement;
+    if (leadMsg) {
+      leadMsg.style.display = 'block';
+    }
+    form?.reset();
+  };
+
   return (
-    <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
-      <Image
-        src="https://iili.io/KPJAAF9.md.png"
-        alt="Sanatani Shop Banner"
-        fill
-        style={{ objectFit: 'contain' }}
-        priority
-      />
-      <a
-        href="https://wa.me/9845634775"
-        className="whatsapp-button"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contact us on WhatsApp"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"
-          fill="currentColor"
+    <>
+      <header>
+        <div className="container top">
+          <div className="brand">
+            <div className="logo">SS</div>
+            <div>
+              <div style={{ fontWeight: 800 }}>Sanatani Shop</div>
+              <div style={{ fontSize: '12px', opacity: 0.95 }}>
+                Digital marketing for spiritual & handcrafted brands
+              </div>
+            </div>
+          </div>
+
+          <nav>
+            <ul>
+              <li>
+                <a onClick={() => scrollToSection('services')}>Services</a>
+              </li>
+              <li>
+                <a onClick={() => scrollToSection('portfolio')}>Portfolio</a>
+              </li>
+              <li>
+                <a onClick={() => scrollToSection('testimonials')}>
+                  Testimonials
+                </a>
+              </li>
+              <li>
+                <a onClick={() => scrollToSection('contact')}>Contact</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+            <a className="btn btn-outline" onClick={() => scrollToSection('contact')}>
+              Get Proposal
+            </a>
+          </div>
+        </div>
+
+        <div className="container hero">
+          <div className="hero-card">
+            <h1>Digital Marketing that honours tradition</h1>
+            <p>
+              We grow spiritual, artisanal and handcrafted brands with targeted
+              ads, local SEO, content that converts and beautiful design—so
+              your products reach the right hearts.
+            </p>
+            <div className="cta">
+              <button
+                className="btn btn-primary"
+                onClick={() => scrollToSection('contact')}
+              >
+                Request a Proposal
+              </button>
+              <a className="btn btn-outline" onClick={() => scrollToSection('portfolio')}>
+                See Our Work
+              </a>
+            </div>
+
+            <div className="services">
+              <div className="service">
+                <h4>Paid Ads</h4>
+                <div className="small">
+                  Google & Social ads with audience research
+                </div>
+              </div>
+              <div className="service">
+                <h4>SEO & Local</h4>
+                <div className="small">
+                  Rank for devotional & product keywords
+                </div>
+              </div>
+              <div className="service">
+                <h4>Content & Creatives</h4>
+                <div className="small">
+                  Product pages, reels & email funnels
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              borderRadius: '16px',
+              minHeight: '320px',
+              position: 'relative',
+            }}
+          >
+            <Image
+              src="https://picsum.photos/seed/1/420/380"
+              alt="Sanatani Marketing"
+              fill
+              style={{ objectFit: 'cover', borderRadius: '16px' }}
+              data-ai-hint="marketing tradition"
+            />
+          </div>
+        </div>
+      </header>
+
+      <main className="container">
+        <section id="services">
+          <h2>What we do</h2>
+          <p className="small">
+            End-to-end digital growth for religious & cultural product brands.
+          </p>
+          <div className="grid-3" style={{ marginTop: '12px' }}>
+            <div className="card">
+              <h3>Brand Strategy</h3>
+              <p className="small">
+                Position your brand with a story that resonates — packaging,
+                messaging and go-to-market plan tailored for spiritual
+                customers.
+              </p>
+            </div>
+            <div className="card">
+              <h3>Performance Marketing</h3>
+              <p className="small">
+                ROAS-focused ad campaigns on Meta, Google & WhatsApp. A/B
+                testing, creative optimization and conversion tracking.
+              </p>
+            </div>
+            <div className="card">
+              <h3>Shop & CRO</h3>
+              <p className="small">
+                Product page optimization, fast checkout flows and trust
+                signals (reviews, badges) to increase conversions.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="portfolio" style={{ marginTop: '22px' }}>
+          <h2>Selected work</h2>
+          <div className="grid-3 portfolio" style={{ marginTop: '12px' }}>
+            <div className="card">
+              <Image
+                src="https://picsum.photos/seed/2/800/600"
+                alt="Campaign 1"
+                width={800}
+                height={600}
+                data-ai-hint="campaign festive"
+              />
+              <h4 style={{ marginTop: '10px' }}>Festive Campaign — 4x ROAS</h4>
+              <div className="small">Social-first reels & catalog ads.</div>
+            </div>
+            <div className="card">
+              <Image
+                src="https://picsum.photos/seed/3/800/600"
+                alt="Campaign 2"
+                width={800}
+                height={600}
+                data-ai-hint="local SEO"
+              />
+              <h4 style={{ marginTop: '10px' }}>Local SEO for Temple Store</h4>
+              <div className="small">Driving footfall & phone orders.</div>
+            </div>
+            <div className="card">
+              <Image
+                src="https://picsum.photos/seed/4/800/600"
+                alt="Campaign 3"
+                width={800}
+                height={600}
+                data-ai-hint="whatsapp marketing"
+              />
+              <h4 style={{ marginTop: '10px' }}>WhatsApp Funnel</h4>
+              <div className="small">
+                Automated cart recovery & product bundles.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="testimonials">
+          <h2 style={{ marginTop: '22px' }}>What clients say</h2>
+          <div className="testimonials">
+            <div className="testimonial">
+              <strong>Rama Stores</strong>
+              <p className="small">
+                &quot;Their Diwali campaign doubled our sales and improved our
+                ROAS. Creative that actually speaks to our customers.&quot;
+              </p>
+            </div>
+            <div className="testimonial">
+              <strong>Shakti Handicrafts</strong>
+              <p className="small">
+                &quot;Local SEO work brought steady orders — shop visits
+                increased by 38% in 3 months.&quot;
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="contact">
+          <div>
+            <h2>Request a proposal</h2>
+            <p className="small">
+              Tell us about your store — we’ll suggest a growth plan and a
+              30-day campaign blueprint.
+            </p>
+            <form id="leadForm" onSubmit={submitLead}>
+              <input id="name" placeholder="Your name" required />
+              <input id="email" type="email" placeholder="Email" required />
+              <input id="phone" placeholder="Phone (optional)" />
+              <select id="budget">
+                <option value="">Estimated monthly ad budget</option>
+                <option>Under ₹10k</option>
+                <option>₹10k–50k</option>
+                <option>₹50k+</option>
+              </select>
+              <textarea
+                id="message"
+                rows={4}
+                placeholder="Tell us about your store or campaign goals"
+              ></textarea>
+              <button className="btn btn-primary" type="submit">
+                Send Request
+              </button>
+            </form>
+            <div
+              id="leadMsg"
+              style={{
+                marginTop: '10px',
+                color: 'green',
+                display: 'none',
+              }}
+            >
+              Thanks — we will email a proposal within 24 hours.
+            </div>
+          </div>
+
+          <aside className="card" style={{ height: 'fit-content' }}>
+            <h3>Why Sanatani Shop Growth</h3>
+            <ul className="small">
+              <li>Specialised audience targeting for devotional shoppers</li>
+              <li>Creative direction rooted in culture and respect</li>
+              <li>Transparent reporting and clear KPIs</li>
+            </ul>
+            <div style={{ marginTop: '12px' }}>
+              <strong>Free 30-min consult</strong> — book after you submit the
+              form.
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer className="footer">
+        <div
+          className="container"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '12px',
+            flexWrap: 'wrap',
+          }}
         >
-          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-        </svg>
-      </a>
-    </div>
+          <div>
+            <div style={{ fontWeight: 800 }}>Sanatani Shop</div>
+            <div className="small">
+              Digital marketing for spiritual & handcrafted brands
+            </div>
+          </div>
+          <div className="small">© Sanatani Shop — All rights reserved</div>
+        </div>
+      </footer>
+    </>
   );
 }
