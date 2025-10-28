@@ -134,6 +134,9 @@ nav a {
 
 .service h4 {
   margin: 8px 0 6px;
+  color: black;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .small {
