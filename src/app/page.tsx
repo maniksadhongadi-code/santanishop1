@@ -5,27 +5,11 @@ import {
   GitCompare,
   Heart,
   ShoppingCart,
-  ChevronDown,
   Search,
   X,
-  LogIn,
-  ShoppingBasket,
-  HeartHandshake,
-  BookOpen,
-  Download,
-  Gift,
-  Terminal,
-  Wrench,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
-
-const conversionRates: { [key: string]: number } = {
-  USD: 1.0,
-  EUR: 0.92,
-  GBP: 0.79,
-  INR: 83.33,
-};
 
 const categories = [
   'For You',
@@ -39,11 +23,7 @@ const categories = [
 export default function Home() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
-  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [isSecondSearchExpanded, setIsSecondSearchExpanded] = useState(false);
-  const [activeTab, setActiveTab] = useState('menu');
-  const [selectedCurrency, setSelectedCurrency] = useState('USD');
-  const [baseAmount] = useState(100); // Base amount in USD
   const [showCategoryCube, setShowCategoryCube] = useState(false);
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
 
@@ -77,12 +57,6 @@ export default function Home() {
     }
   };
   
-  const handleCurrencyChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCurrency(event.target.value);
-  };
-
-  const convertedAmount = (baseAmount * conversionRates[selectedCurrency]).toFixed(2);
-
   const handleNextCategory = () => {
     setSelectedCategoryIndex((prevIndex) => (prevIndex + 1) % categories.length);
   };
@@ -121,68 +95,6 @@ export default function Home() {
             <button className="header-button">
               <ShoppingCart size={20} />
             </button>
-            <button
-              className="header-button"
-              onClick={() => setIsSearchExpanded(!isSearchExpanded)}
-            >
-              <ChevronDown size={20} />
-            </button>
-          </div>
-
-          <div className={`search-box-container ${isSearchExpanded ? 'active' : ''}`}>
-            <div className="tab-slider">
-              <div className="tab-header">
-                <div
-                  className={`tab-item ${activeTab === 'menu' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('menu')}
-                >
-                  Menu
-                </div>
-                <div
-                  className={`tab-item ${activeTab === 'categories' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('categories')}
-                >
-                  Categories
-                </div>
-                 <div className="tab-indicator" style={{ left: activeTab === 'categories' ? 'calc(50% - 2.5px)' : '5px' }}></div>
-              </div>
-              <div className="tab-content">
-                <div className={`tab-pane ${activeTab === 'menu' ? 'active' : ''}`}>
-                  <div className={`search-box active`}>
-                    <input type="text" placeholder="Search in Menu..." />
-                    <div className="search-icon">
-                      <Search size={20} />
-                    </div>
-                  </div>
-                  <div className="currency-converter">
-                    <label htmlFor="currency-select">Choose Currency:</label>
-                    <select id="currency-select" value={selectedCurrency} onChange={handleCurrencyChange}>
-                      {Object.keys(conversionRates).map(currency => (
-                        <option key={currency} value={currency}>{currency}</option>
-                      ))}
-                    </select>
-                    <div className="payment-details">
-                      <p>Payment Amount:</p>
-                      <span>{convertedAmount} {selectedCurrency}</span>
-                    </div>
-                  </div>
-                   <ul className="menu-options">
-                    <li><LogIn size={16} /> Account</li>
-                    <li><ShoppingBasket size={16} /> Cart</li>
-                    <li><HeartHandshake size={16} /> Wishlist</li>
-                  </ul>
-                </div>
-                <div className={`tab-pane ${activeTab === 'categories' ? 'active' : ''}`}>
-                   <ul className="menu-options">
-                    <li><BookOpen size={16} /> Books & Audio</li>
-                    <li><Download size={16} /> Digital Products</li>
-                    <li><Gift size={16} /> For You</li>
-                    <li><Terminal size={16} /> Software</li>
-                    <li><Wrench size={16} /> Tools & More</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
           
           <div className={`search-box ${isSecondSearchExpanded ? 'active' : ''}`} onMouseEnter={() => setIsSecondSearchExpanded(true)} onMouseLeave={() => setIsSecondSearchExpanded(false)}>
