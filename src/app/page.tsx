@@ -47,6 +47,13 @@ const marketingServices = [
   }
 ];
 
+const pages = [
+  { name: 'Home', className: 'home' },
+  { name: 'Shop', className: 'shop-bg' }, // You may want a different background for the shop
+  { name: 'Notes', className: 'notes' },
+  { name: 'About', className: 'about' },
+];
+
 export default function Home() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
@@ -57,11 +64,6 @@ export default function Home() {
   const overlayRef = useRef<HTMLSpanElement>(null);
   const pageContainerRef = useRef<HTMLElement>(null);
 
-  const pages = [
-    { name: 'Home', className: 'home' },
-    { name: 'Notes', className: 'notes' },
-    { name: 'About', className: 'about' },
-  ];
 
   const handleToggleNav = () => {
     setIsNavActive(!isNavActive);
@@ -170,7 +172,14 @@ export default function Home() {
             }`}
           >
             {page.name === 'Home' ? (
-                <div className="shop-container">
+                <div className="content">
+                    <h1 className="title">Create Anything</h1>
+                    <p>
+                      Turn your ideas into reality. We provide the tools, services, and expertise to help you build and grow your digital presence. Explore our offerings and start creating today.
+                    </p>
+                </div>
+            ) : page.name === 'Shop' ? (
+              <div className="shop-container">
                     <h2>Digital Marketing Services</h2>
                     <div className="services-grid">
                       {marketingServices.map((service, index) => (
@@ -193,7 +202,7 @@ export default function Home() {
                   customers.
                 </p>
               </div>
-            ) : (
+            ) : ( // About Page
               <div className="content">
                 <h1 className="title">Product Marketing Strategies</h1>
                 <p>
@@ -234,7 +243,9 @@ export default function Home() {
       )}
 
       <div className="bottom-nav">
+        <button className="jelly-button" onClick={() => handleLinkClick(0)}>Home</button>
         <button className="jelly-button" onClick={() => setShowCategoryCube(true)}>Categories</button>
+        <button className="jelly-button" onClick={() => handleLinkClick(1)}>Shop</button>
         <button className="jelly-button">Blog</button>
         <button className="jelly-button">FAQs</button>
       </div>
