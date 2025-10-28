@@ -337,7 +337,7 @@ body {
 }
 
 .search-box-container.active {
-  height: 80px; /* Adjust height as needed */
+  height: 140px;
 }
 
 .tab-slider {
@@ -436,4 +436,37 @@ body {
 
 .tab-pane p {
   color: #333;
+}
+
+.currency-converter {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  color: #333;
+}
+
+.currency-converter label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.currency-converter select {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.payment-details {
+  margin-top: 10px;
+}
+
+.payment-details p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.payment-details span {
+  font-size: 1.2rem;
+  color: #644bff;
 }

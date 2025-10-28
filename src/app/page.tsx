@@ -10,12 +10,21 @@ import {
   X,
 } from 'lucide-react';
 
+const conversionRates: { [key: string]: number } = {
+  USD: 1.0,
+  EUR: 0.92,
+  GBP: 0.79,
+  INR: 83.33,
+};
+
 export default function Home() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [isSecondSearchExpanded, setIsSecondSearchExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('menu');
+  const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  const [baseAmount] = useState(100); // Base amount in USD
   const overlayRef = useRef<HTMLSpanElement>(null);
 
   const pages = [
@@ -30,7 +39,6 @@ export default function Home() {
 
   const handleLinkClick = (index: number) => {
     if (overlayRef.current) {
-      // Close the navigation when a link is clicked
       setIsNavActive(false);
       overlayRef.current.classList.add('slide');
 
@@ -45,6 +53,12 @@ export default function Home() {
       }, 1000);
     }
   };
+
+  const handleCurrencyChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCurrency(event.target.value);
+  };
+
+  const convertedAmount = (baseAmount * conversionRates[selectedCurrency]).toFixed(2);
 
   return (
     <>
@@ -95,6 +109,18 @@ export default function Home() {
                     <input type="text" placeholder="Search in Menu..." />
                     <div className="search-icon">
                       <Search size={20} />
+                    </div>
+                  </div>
+                  <div className="currency-converter">
+                    <label htmlFor="currency-select">Choose Currency:</label>
+                    <select id="currency-select" value={selectedCurrency} onChange={handleCurrencyChange}>
+                      {Object.keys(conversionRates).map(currency => (
+                        <option key={currency} value={currency}>{currency}</option>
+                      ))}
+                    </select>
+                    <div className="payment-details">
+                      <p>Payment Amount:</p>
+                      <span>{convertedAmount} {selectedCurrency}</span>
                     </div>
                   </div>
                 </div>
