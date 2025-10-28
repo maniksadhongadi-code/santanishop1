@@ -331,13 +331,13 @@ body {
 }
 
 .search-box-container {
-  overflow: visible;
+  overflow: hidden;
   height: 0;
   transition: height 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .search-box-container.active {
-  height: 240px; /* Adjust height to fit content */
+  height: 280px; /* Adjust height to fit content */
 }
 
 .tab-slider {
