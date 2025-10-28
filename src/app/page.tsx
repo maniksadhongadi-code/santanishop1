@@ -358,7 +358,7 @@ export default function Home() {
              <div style={{ fontWeight: 700, marginBottom: '8px' }}>Follow us</div>
              <div className="social-icons">
                 <a href="https://www.facebook.com/share/17KomzTebe/"><Facebook size={20} /></a>
-                <a href="#"><Instagram size={20} /></a>
+                <a href="https://www.instagram.com/official_sanatanishop?igsh=OW5hc3pkZ2ExZjM="><Instagram size={20} /></a>
                 <a href="#"><WhatsAppIcon /></a>
              </div>
           </div>
