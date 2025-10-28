@@ -195,6 +195,12 @@ body {
 .page.shop-bg {
   background-image: url(https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=2072&auto=format&fit=crop);
 }
+.page.notes-bg {
+  background-image: url(https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=2070&auto=format&fit=crop);
+}
+.page.faq-bg {
+  background-image: url(https://images.unsplash.com/photo-1559863439-22503521e1b2?q=80&w=2070&auto=format&fit=crop);
+}
 
 
 .page .content {
@@ -221,6 +227,41 @@ body {
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   margin-top: 20px;
+}
+
+.page .content ul {
+    list-style-type: none;
+    margin-top: 20px;
+    padding: 0;
+}
+.page .content li {
+    font-size: 1.1rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
+.notes-nav {
+    position: absolute;
+    bottom: 9rem;
+    right: 2rem;
+    display: flex;
+    gap: 10px;
+}
+.notes-nav-button {
+    background: #644bff;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.notes-nav-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
 }
 
 

@@ -47,11 +47,30 @@ const marketingServices = [
   }
 ];
 
+const allServices = [
+    'Complete Instagram Growth Funnels',
+    'YouTube Audience Building & Monetization',
+    'Advanced WordPress SEO & Content Strategy',
+    'Full-Funnel Conversion Marketing Campaigns',
+    'Email Marketing Automation & List Building',
+    'Social Media Management (Facebook, Twitter, LinkedIn)',
+    'Pay-Per-Click (PPC) Campaign Management',
+    'Content Creation: Blogs, Videos, & Graphics',
+    'Brand Identity & Logo Design',
+    'E-commerce Website Development (Shopify, WooCommerce)',
+    'Mobile App Marketing & ASO',
+    'Digital PR & Influencer Outreach',
+];
+
+const itemsPerPage = 5;
+
 const pages = [
   { name: 'Home', className: 'home' },
   { name: 'Shop', className: 'shop-bg' },
   { name: 'Blog', className: 'blog-bg' },
+  { name: 'Notes', className: 'notes-bg' },
   { name: 'About', className: 'about' },
+  { name: 'FAQs', className: 'faq-bg' },
 ];
 
 export default function Home() {
@@ -60,9 +79,13 @@ export default function Home() {
   const [isSecondSearchExpanded, setIsSecondSearchExpanded] = useState(false);
   const [showCategoryCube, setShowCategoryCube] = useState(false);
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
+  const [notesPage, setNotesPage] = useState(0);
 
   const overlayRef = useRef<HTMLSpanElement>(null);
   const pageContainerRef = useRef<HTMLElement>(null);
+
+  const totalNotesPages = Math.ceil(allServices.length / itemsPerPage);
+  const displayedServices = allServices.slice(notesPage * itemsPerPage, (notesPage + 1) * itemsPerPage);
 
 
   const handleToggleNav = () => {
@@ -151,11 +174,11 @@ export default function Home() {
       </nav>
 
       <ul className={`nav-list ${isNavActive ? 'show' : ''}`}>
-        {pages.map((page, index) => (
+        {pages.filter(p => p.name !== 'FAQs').map((page, index) => (
           <li
             key={page.name}
             className="link"
-            onClick={() => handleLinkClick(index)}
+            onClick={() => handleLinkClick(pages.findIndex(p => p.name === page.name))}
           >
             {page.name}
           </li>
@@ -201,7 +224,44 @@ export default function Home() {
                   Our team is our greatest asset. Every employee at Sanatani Shop is a dedicated specialist who handles their role with meticulous care and a passion for excellence. From our SEO analysts to our content creators, we foster a culture of ownership and collaboration. We believe that the best results come from a team that is not only highly skilled but also deeply invested in the success of our clients. That’s the Sanatani Shop difference.
                 </p>
               </div>
-            ) : ( // About Page
+            ) : page.name === 'Notes' ? (
+                <div className="content">
+                    <h1 className="title">Our Services</h1>
+                    <ul>
+                        {displayedServices.map((service, i) => (
+                            <li key={i}>{service}</li>
+                        ))}
+                    </ul>
+                    {totalNotesPages > 1 && (
+                      <div className="notes-nav">
+                          <button 
+                              className="notes-nav-button"
+                              onClick={() => setNotesPage(p => p - 1)}
+                              disabled={notesPage === 0}
+                          >
+                              Prev
+                          </button>
+                          <button 
+                              className="notes-nav-button"
+                              onClick={() => setNotesPage(p => p + 1)}
+                              disabled={notesPage === totalNotesPages - 1}
+                          >
+                              Next
+                          </button>
+                      </div>
+                    )}
+                </div>
+            ) : page.name === 'FAQs' ? (
+                <div className="content">
+                    <h1 className="title">FAQs</h1>
+                    <p>
+                        <strong>Our Main Motto:</strong> To empower creators and businesses by providing transformative digital tools and marketing strategies that deliver tangible results and foster growth. We are committed to innovation, integrity, and the success of our clients.
+                    </p>
+                    <p>
+                        We are proud to have achieved a <strong>98% customer satisfaction rate</strong>. This is a testament to our dedicated team, our client-centric approach, and our relentless pursuit of excellence in everything we do.
+                    </p>
+                </div>
+            ) : page.name === 'About' ? ( 
               <div className="content">
                 <h1 className="title">Product Marketing Strategies</h1>
                 <p>
@@ -213,7 +273,7 @@ export default function Home() {
                   measurable results.
                 </p>
               </div>
-            )}
+            ) : null}
           </section>
         ))}
       </header>
@@ -246,7 +306,7 @@ export default function Home() {
         <button className="jelly-button" onClick={() => setShowCategoryCube(true)}>Categories</button>
         <button className="jelly-button" onClick={() => handleLinkClick(1)}>Shop</button>
         <button className="jelly-button" onClick={() => handleLinkClick(2)}>Blog</button>
-        <button className="jelly-button">FAQs</button>
+        <button className="jelly-button" onClick={() => handleLinkClick(5)}>FAQs</button>
       </div>
     </>
   );
