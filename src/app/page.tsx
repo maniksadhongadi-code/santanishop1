@@ -18,6 +18,8 @@ export default function Home() {
 
   const handleLinkClick = (index: number) => {
     if (overlayRef.current) {
+      // Close the navigation when a link is clicked
+      setIsNavActive(false);
       overlayRef.current.classList.add('slide');
 
       setTimeout(() => {
