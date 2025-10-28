@@ -15,7 +15,9 @@ import {
   Download,
   Gift,
   Terminal,
-  Wrench
+  Wrench,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 const conversionRates: { [key: string]: number } = {
@@ -25,6 +27,15 @@ const conversionRates: { [key: string]: number } = {
   INR: 83.33,
 };
 
+const categories = [
+  'For You',
+  'Digital Products',
+  'Tools and More',
+  'Software',
+  'Books and Audio',
+  'Best Digital Products and Service Provider',
+];
+
 export default function Home() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
@@ -33,6 +44,9 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('menu');
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [baseAmount] = useState(100); // Base amount in USD
+  const [showCategoryCube, setShowCategoryCube] = useState(false);
+  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
+
   const overlayRef = useRef<HTMLSpanElement>(null);
 
   const pages = [
@@ -68,6 +82,13 @@ export default function Home() {
 
   const convertedAmount = (baseAmount * conversionRates[selectedCurrency]).toFixed(2);
 
+  const handleNextCategory = () => {
+    setSelectedCategoryIndex((prevIndex) => (prevIndex + 1) % categories.length);
+  };
+
+  const handlePrevCategory = () => {
+    setSelectedCategoryIndex((prevIndex) => (prevIndex - 1 + categories.length) % categories.length);
+  };
 
   return (
     <>
@@ -236,8 +257,32 @@ export default function Home() {
           </section>
         ))}
       </header>
-       <div className="bottom-nav">
-        <button className="jelly-button">Categories</button>
+
+      {showCategoryCube && (
+        <div className="category-cube-overlay">
+          <button className="close-cube-btn" onClick={() => setShowCategoryCube(false)}>
+            <X size={30} />
+          </button>
+          <div className="category-cube-container">
+            <div className="cube-scene">
+              <div className="cube" style={{ transform: `rotateY(${-selectedCategoryIndex * 60}deg)` }}>
+                {categories.map((category, index) => (
+                  <div key={index} className={`cube-face face-${index + 1}`}>
+                    {category}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="cube-nav">
+              <button onClick={handlePrevCategory}><ChevronLeft size={24} /></button>
+              <button onClick={handleNextCategory}><ChevronRight size={24} /></button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="bottom-nav">
+        <button className="jelly-button" onClick={() => setShowCategoryCube(true)}>Categories</button>
         <button className="jelly-button">Shop</button>
         <button className="jelly-button">Blog</button>
         <button className="jelly-button">FAQs</button>
