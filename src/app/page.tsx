@@ -205,7 +205,7 @@ export default function Home() {
           <div className="grid-3 portfolio" style={{ marginTop: '12px' }}>
             <div className="card">
               <Image
-                src="https://picsum.photos/seed/rebranding/800/600"
+                src="https://iili.io/KP2exV4.md.jpg"
                 alt="Project 1"
                 width={800}
                 height={600}
