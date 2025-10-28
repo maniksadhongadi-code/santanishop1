@@ -13,7 +13,6 @@ import {
   Youtube,
   Globe,
   Target,
-  MessageCircle,
 } from 'lucide-react';
 
 const categories = [
@@ -308,13 +307,11 @@ export default function Home() {
       <div className="bottom-nav">
         <button className="jelly-button" onClick={() => handleLinkClick(0)}>Home</button>
         <button className="jelly-button" onClick={() => setShowCategoryCube(true)}>Categories</button>
-        <button className="jelly-button" onClick={() => handleLinkClick(2)}>Our Story</button>
-        <button className="jelly-button">Quick Links</button>
-        <button className="jelly-button">Information</button>
-        <button className="jelly-button icon-only">
-            <MessageCircle size={20} />
-        </button>
+        <button className="jelly-button" onClick={() => handleLinkClick(2)}>Blog</button>
+        <button className="jelly-button" onClick={() => handleLinkClick(5)}>FAQs</button>
       </div>
     </>
   );
 }
+
+    

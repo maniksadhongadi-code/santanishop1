@@ -408,11 +408,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 15px;
   z-index: 100;
-  max-width: 90%;
 }
 
 .jelly-button {
@@ -421,19 +418,13 @@ body {
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   font-size: 14px;
   cursor: pointer;
   border-radius: 12px;
   background-color: #644bff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.jelly-button.icon-only {
-  padding: 15px;
 }
 
 .jelly-button:hover {
@@ -627,3 +618,5 @@ body {
   color: #ccc;
   line-height: 1.6;
 }
+
+    
