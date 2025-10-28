@@ -64,18 +64,18 @@ export default function Home() {
                 </a>
               </li>
               <li>
-                <a onClick={() => scrollToSection('contact')}>Contact</a>
+                <Link href="/contact">Contact</Link>
               </li>
             </ul>
           </nav>
 
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <a
+            <Link
               className="btn btn-outline"
-              onClick={() => scrollToSection('contact')}
+              href="/contact"
             >
               Get a Quote
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -88,12 +88,12 @@ export default function Home() {
               We’re offering <strong>creative digital services</strong> designed to elevate your brand and transform your online presence. Our team blends <strong>innovation, design, and strategy</strong> to craft powerful digital experiences that connect with your audience. From <strong>branding and web development</strong> to <strong>social media marketing, SEO, and content creation</strong>, we deliver end-to-end solutions tailored to your goals. With a focus on <strong>creativity, technology, and performance</strong>, we help businesses grow, engage, and stand out in the digital world—turning ideas into impactful, measurable results.
             </p>
             <div className="cta">
-              <button
+              <Link
                 className="btn btn-primary"
-                onClick={() => scrollToSection('contact')}
+                href="/contact"
               >
                 Request a Quote
-              </button>
+              </Link>
               <a
                 className="btn btn-outline"
                 onClick={() => scrollToSection('portfolio')}
@@ -280,7 +280,7 @@ export default function Home() {
           <div>
             <h2>Information</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
-              <a href="#" className="small">Contact Us</a>
+              <Link href="/contact" className="small">Contact Us</Link>
               <a href="#" className="small">Privacy Policy</a>
               <a href="#" className="small">Terms and Conditions</a>
               <a href="#" className="small">Refund Policy</a>
