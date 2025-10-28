@@ -359,7 +359,7 @@ export default function Home() {
              <div className="social-icons">
                 <a href="https://www.facebook.com/share/17KomzTebe/"><Facebook size={20} /></a>
                 <a href="https://acesse.one/wwwInsta"><Instagram size={20} /></a>
-                <a href="#"><WhatsAppIcon /></a>
+                <a href="https://wa.me/9845634775"><WhatsAppIcon /></a>
              </div>
           </div>
           <div>
