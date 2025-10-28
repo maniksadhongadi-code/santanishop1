@@ -384,8 +384,11 @@ export default function Home() {
                 <a href="#"><Youtube size={20} /></a>
              </div>
           </div>
-          <div className="small">
-            © Sanatani Shop — All rights reserved
+          <div>
+            <div style={{ fontWeight: 'bold', textTransform: 'uppercase' }}>CONTACT NUMBER:- 9845634775</div>
+            <div className="small">
+              © Sanatani Shop — All rights reserved
+            </div>
           </div>
         </div>
       </footer>
