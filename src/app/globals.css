@@ -242,18 +242,17 @@ body {
 }
 
 .search-box {
-  position: relative;
   margin-top: 0.5rem;
+  position: relative;
   height: 40px;
-  width: 40px;
-  border-radius: 50%;
+  width: 0;
+  border-radius: 5px;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .search-box.active {
   width: 350px;
-  border-radius: 5px;
 }
 
 .search-box input {
@@ -280,12 +279,12 @@ body {
 .search-box .search-icon {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  transform: translateY(-50%);
   height: 30px;
-  width: 30px;
+  width: 0px;
   background: #fff;
-  border-radius: 50%;
+  border-radius: 5px;
   text-align: center;
   line-height: 30px;
   font-size: 20px;
@@ -303,7 +302,6 @@ body {
   width: 50px;
   left: auto;
   right: 0px;
-  transform: translateY(-50%);
   background: #644bff;
   color: #fff;
   border-radius: 0 5px 5px 0;

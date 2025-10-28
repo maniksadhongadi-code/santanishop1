@@ -62,22 +62,16 @@ export default function Home() {
             <button className="header-button">
               <ShoppingCart size={20} />
             </button>
-            <button className="header-button">
+            <button
+              className="header-button"
+              onClick={() => setIsSearchExpanded(!isSearchExpanded)}
+            >
               <ChevronDown size={20} />
             </button>
           </div>
-          <div
-            className={`search-box ${isSearchExpanded ? 'active' : ''}`}
-            onMouseEnter={() => setIsSearchExpanded(true)}
-            onMouseLeave={() => setIsSearchExpanded(false)}
-          >
+          <div className={`search-box ${isSearchExpanded ? 'active' : ''}`}>
             <input type="text" placeholder="Search" />
-            <div
-              className="search-icon"
-              onClick={() => {
-                if (!isSearchExpanded) setIsSearchExpanded(true);
-              }}
-            >
+            <div className="search-icon">
               <Search size={20} />
             </div>
             <div
@@ -155,6 +149,7 @@ export default function Home() {
                   content marketing, and social media to build brand
                   awareness, drive engagement, and boost conversions. We focus
                   on data-driven insights to optimize campaigns and deliver
+
                   measurable results.
                 </p>
               </div>
