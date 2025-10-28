@@ -16,6 +16,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: #08122a;
+  overflow-x: hidden;
 }
 
 .container {
