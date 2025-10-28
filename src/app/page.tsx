@@ -235,7 +235,7 @@ export default function Home() {
             </div>
             <div className="card">
               <Image
-                src="https://picsum.photos/seed/socialmediadashboard/800/600"
+                src="https://iili.io/KP26brG.md.jpg"
                 alt="Project 3"
                 width={800}
                 height={600}
