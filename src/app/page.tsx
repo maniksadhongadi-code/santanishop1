@@ -325,6 +325,16 @@ export default function Home() {
               <a href="#" className="small">Contract Manufacturing</a>
               <a href="#" className="small">Our Awards</a>
             </div>
+            <div style={{ marginTop: '28px' }}>
+              <h2>Categories</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
+                <a href="#" className="small">Digital Marketing</a>
+                <a href="#" className="small">SEO</a>
+                <a href="#" className="small">Digital Products</a>
+                <a href="#" className="small">Graphics</a>
+                <a href="#" className="small">Web Designing</a>
+              </div>
+            </div>
           </div>
 
           <aside className="card" style={{ height: 'fit-content' }}>
