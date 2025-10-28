@@ -241,22 +241,24 @@ export default function Home() {
         </section>
 
         <section id="testimonials">
-          <h2 style={{ marginTop: '22px' }}>What clients say</h2>
+          <h2 style={{ marginTop: '22px' }}>What Clients Say</h2>
           <div className="testimonials">
             <div className="testimonial">
-              <strong>Innovate Inc.</strong>
+              <strong>BrightWave Fashions</strong>
               <p className="small">
-                &quot;The custom CRM they built has revolutionized our sales
-                process. The team was professional, responsive, and delivered
-                on time.&quot;
+                &quot;Sanatani Shop completely transformed our online presence! Their branding and social media strategies helped us attract thousands of new followers and boost sales.&quot;
               </p>
             </div>
             <div className="testimonial">
-              <strong>Data Corp.</strong>
+              <strong>TechVibe Solutions</strong>
               <p className="small">
-                &quot;Sanatani Shop helped us migrate our legacy systems to the
-                cloud, significantly improving performance and reducing
-                costs.&quot;
+                &quot;The SEO and Google Ads campaigns by Sanatani Shop doubled our website traffic within months. Their team is creative, data-driven, and truly committed to results.&quot;
+              </p>
+            </div>
+            <div className="testimonial">
+              <strong>NatureNest Organics</strong>
+              <p className="small">
+                &quot;From logo design to content marketing, Sanatani Shop gave our brand a fresh, modern identity that connects beautifully with our customers.&quot;
               </p>
             </div>
           </div>
