@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
   User,
   GitCompare,
@@ -48,6 +48,7 @@ export default function Home() {
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
 
   const overlayRef = useRef<HTMLSpanElement>(null);
+  const pageContainerRef = useRef<HTMLElement>(null);
 
   const pages = [
     { name: 'Home', className: 'home' },
@@ -89,6 +90,18 @@ export default function Home() {
   const handlePrevCategory = () => {
     setSelectedCategoryIndex((prevIndex) => (prevIndex - 1 + categories.length) % categories.length);
   };
+  
+  useEffect(() => {
+    const pageContainer = pageContainerRef.current;
+    if (pageContainer) {
+      if (showCategoryCube) {
+        pageContainer.classList.add('blur');
+      } else {
+        pageContainer.classList.remove('blur');
+      }
+    }
+  }, [showCategoryCube]);
+
 
   return (
     <>
@@ -208,7 +221,7 @@ export default function Home() {
         ))}
       </ul>
 
-      <header className={`page-container ${isNavActive ? 'active' : ''} ${showCategoryCube ? 'blur' : ''}`}>
+      <header ref={pageContainerRef} className={`page-container ${isNavActive ? 'active' : ''}`}>
         <span ref={overlayRef} className="overlay"></span>
         {pages.map((page, index) => (
           <section

@@ -133,10 +133,25 @@ body {
   filter: none;
 }
 
-.page-container.blur {
-    filter: blur(10px) brightness(0.7);
-    transform: scale(1.1);
+.page-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(0) brightness(1);
+  transition: filter 0.5s ease-out;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
 }
+
+.page-container.blur::before {
+    filter: blur(10px) brightness(0.7);
+}
+
 
 .overlay {
   position: fixed;
@@ -181,6 +196,8 @@ body {
   text-align: center;
   max-width: 800px;
   padding: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .page .title {
