@@ -12,7 +12,6 @@ import {
   Instagram,
   Youtube,
   Globe,
-  TrendingUp,
   Target
 } from 'lucide-react';
 

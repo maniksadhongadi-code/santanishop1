@@ -546,10 +546,10 @@ body {
 }
 
 .shop-container {
-  background: rgba(33, 33, 33, 0.9);
+  background: transparent;
   padding: 2rem;
   border-radius: 15px;
-  border: 1px solid #644bff;
+  border: 1px solid rgba(100, 75, 255, 0.5);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   width: 100%;
   max-width: 1200px;
@@ -572,7 +572,7 @@ body {
 }
 
 .service-card {
-  background: #2a2a2e;
+  background: rgba(42, 42, 46, 0.8);
   padding: 2rem;
   border-radius: 10px;
   border: 1px solid transparent;
