@@ -194,47 +194,47 @@ export default function Home() {
           <div className="grid-3 portfolio" style={{ marginTop: '12px' }}>
             <div className="card">
               <Image
-                src="https://picsum.photos/seed/2/800/600"
+                src="https://picsum.photos/seed/rebranding/800/600"
                 alt="Project 1"
                 width={800}
                 height={600}
-                data-ai-hint="saas dashboard"
+                data-ai-hint="rebranding strategy"
               />
               <h4 style={{ marginTop: '10px' }}>
-                Enterprise SaaS Platform
+                Brand Transformation Campaign
               </h4>
               <div className="small">
-                Full-stack web app with multi-tenancy.
+                A complete digital rebranding strategy — including logo design, website revamp, and social media launch — that boosted client visibility by 150%.
               </div>
             </div>
             <div className="card">
               <Image
-                src="https://picsum.photos/seed/3/800/600"
+                src="https://picsum.photos/seed/ecommercemarketing/800/600"
                 alt="Project 2"
                 width={800}
                 height={600}
-                data-ai-hint="mobile app"
+                data-ai-hint="ecommerce marketing"
               />
               <h4 style={{ marginTop: '10px' }}>
-                E-commerce Mobile App
+                E-Commerce Growth Marketing
               </h4>
               <div className="small">
-                Cross-platform app for iOS and Android.
+                Executed targeted SEO, Google Ads, and influencer collaborations for an online store, resulting in a 3x increase in monthly sales.
               </div>
             </div>
             <div className="card">
               <Image
-                src="https://picsum.photos/seed/4/800/600"
+                src="https://picsum.photos/seed/socialmediadashboard/800/600"
                 alt="Project 3"
                 width={800}
                 height={600}
-                data-ai-hint="data visualization"
+                data-ai-hint="social media dashboard"
               />
               <h4 style={{ marginTop: '10px' }}>
-                Data Visualization Dashboard
+                Social Media Analytics Dashboard
               </h4>
               <div className="small">
-                Real-time analytics and reporting interface.
+                Developed a real-time dashboard to monitor engagement, ad performance, and audience behavior across multiple social platforms for data-driven marketing decisions.
               </div>
             </div>
           </div>
@@ -340,5 +340,3 @@ export default function Home() {
     </>
   );
 }
-
-    
