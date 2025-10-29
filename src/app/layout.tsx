@@ -72,13 +72,6 @@ export default function RootLayout({
       const warningSeen = sessionStorage.getItem('mobileWarningSeen');
       if (isMobile && !warningSeen) {
         setShowMobileWarning(true);
-
-        const warningTimer = setTimeout(() => {
-          setShowMobileWarning(false);
-          sessionStorage.setItem('mobileWarningSeen', 'true');
-        }, 3000);
-
-        return () => clearTimeout(warningTimer);
       }
     }
   }, [isMobile]);
