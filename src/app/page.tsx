@@ -285,7 +285,7 @@ export default function Home() {
               <Link href="/privacy-policy" className="small">Privacy Policy</Link>
               <Link href="/terms-and-conditions" className="small">Terms and Conditions</Link>
               <Link href="/refund-policy" className="small">Refund Policy</Link>
-              <a href="#" className="small">Disclaimer</a>
+              <Link href="/disclaimer" className="small">Disclaimer</Link>
             </div>
             <div style={{ marginTop: '28px' }}>
               <h2>Quick Links</h2>

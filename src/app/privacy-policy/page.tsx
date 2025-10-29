@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
 
         <h3>1. Introduction</h3>
         <p>
-          Welcome to ZenxZone.com. We value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and share your information when you visit or make a purchase from our website.
+          Welcome to SanataniShop.store. We value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and share your information when you visit or make a purchase from our website.
         </p>
 
         <h3>2. Information We Collect</h3>
@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
         <p>
           sanatanishop.store
           <br />
-          [ Contact Us ]
+          <Link href="/contact" style={{ color: 'var(--accent)' }}>Contact Us</Link>
         </p>
 
         <div style={{ marginTop: '30px' }}>

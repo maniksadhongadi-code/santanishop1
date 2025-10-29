@@ -33,7 +33,7 @@ export default function TermsAndConditions() {
         </ul>
 
         <h3>4. Your Privacy</h3>
-        <p>Please read our Privacy Policy.</p>
+        <p>Please read our <Link href="/privacy-policy" style={{ color: 'var(--accent)' }}>Privacy Policy</Link>.</p>
 
         <h3>5. Limitation of Liability</h3>
         <p>
@@ -72,7 +72,7 @@ export default function TermsAndConditions() {
 
         <h3>Contact Us</h3>
         <p>
-          If you have any questions about these Terms, please contact us.
+          If you have any questions about these Terms, please <Link href="/contact" style={{ color: 'var(--accent)' }}>contact us</Link>.
         </p>
 
         <div style={{ marginTop: '30px' }}>

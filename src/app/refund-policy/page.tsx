@@ -69,7 +69,7 @@ export default function RefundPolicy() {
 
         <h2>Exchanges</h2>
         <p>
-          We only replace items if they are defective or damaged. If you need to exchange it for the same item, send us an email at {`{ CONTACT US }`} and send your item to: {`{physical address}`}.
+          We only replace items if they are defective or damaged. If you need to exchange it for the same item, send us an email at sanatanishop2@gmail.com and send your item to: {`{physical address}`}.
         </p>
 
         <h2>Gifts</h2>
