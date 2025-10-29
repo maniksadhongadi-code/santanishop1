@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -282,7 +283,7 @@ export default function Home() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
               <Link href="/contact" className="small">Contact Us</Link>
               <Link href="/privacy-policy" className="small">Privacy Policy</Link>
-              <a href="#" className="small">Terms and Conditions</a>
+              <Link href="/terms-and-conditions" className="small">Terms and Conditions</Link>
               <Link href="/refund-policy" className="small">Refund Policy</Link>
               <a href="#" className="small">Disclaimer</a>
             </div>
