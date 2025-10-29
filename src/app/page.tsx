@@ -281,7 +281,7 @@ export default function Home() {
             <h2>Information</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
               <Link href="/contact" className="small">Contact Us</Link>
-              <a href="#" className="small">Privacy Policy</a>
+              <Link href="/privacy-policy" className="small">Privacy Policy</Link>
               <a href="#" className="small">Terms and Conditions</a>
               <Link href="/refund-policy" className="small">Refund Policy</Link>
               <a href="#" className="small">Disclaimer</a>
