@@ -293,7 +293,7 @@ export default function Home() {
                 <a href="#" className="small">Blog</a>
                 <a href="#" className="small">Subscription</a>
                 <a href="#" className="small">Announcements</a>
-                <a href="#" className="small">FAQ's</a>
+                <Link href="/faq" className="small">FAQ's</Link>
                 <a href="#" className="small">Shipping and Delivery</a>
               </div>
             </div>
