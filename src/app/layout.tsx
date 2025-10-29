@@ -2,7 +2,7 @@
 
 import type { Metadata } from "next";
 import "./globals.css";
-import React, from 'react';
+import React from 'react';
 import { Loader2, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -10,33 +10,43 @@ function MobileWarningPopup({ onClose }: { onClose: () => void }) {
   return (
     <div style={{
       position: 'fixed',
-      bottom: '20px',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      backgroundColor: '#333',
-      color: 'white',
-      padding: '15px 20px',
-      borderRadius: '8px',
-      zIndex: 1000,
-      maxWidth: '90%',
-      textAlign: 'center',
-      boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
       display: 'flex',
+      justifyContent: 'center',
       alignItems: 'center',
-      gap: '15px'
+      zIndex: 9999,
+      padding: '20px'
     }}>
-      <p style={{ margin: 0, fontSize: '14px' }}>
-        This website is specially made for desktop view only, the mobile view of the website is cluttered please change it to desktop view.
-      </p>
-      <button onClick={onClose} style={{
-        background: 'none',
-        border: 'none',
+      <div style={{
+        backgroundColor: '#333',
         color: 'white',
-        cursor: 'pointer',
-        padding: 0
+        padding: '20px',
+        borderRadius: '8px',
+        maxWidth: '90%',
+        textAlign: 'center',
+        position: 'relative',
+        boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
       }}>
-        <X size={20} />
-      </button>
+        <p style={{ margin: 0, fontSize: '14px' }}>
+          This website is specially made for desktop view only, the mobile view of the website is cluttered please change it to desktop view.
+        </p>
+        <button onClick={onClose} style={{
+          position: 'absolute',
+          top: '5px',
+          right: '5px',
+          background: 'none',
+          border: 'none',
+          color: 'white',
+          cursor: 'pointer',
+          padding: '5px'
+        }}>
+          <X size={20} />
+        </button>
+      </div>
     </div>
   );
 }
@@ -92,8 +102,8 @@ export default function RootLayout({
           </div>
         ) : (
           <>
-            {children}
             {showMobileWarning && <MobileWarningPopup onClose={handleCloseWarning} />}
+            {children}
           </>
         )}
       </body>
