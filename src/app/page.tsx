@@ -269,7 +269,7 @@ export default function Home() {
               </p>
             </div>
             <div className="testimonial">
-              <strong>NatureNest Organics</strong>
+              <strong>Ramesh Kumar CEO</strong>
               <p className="small">
                 &quot;From logo design to content marketing, Sanatani Shop gave our brand a fresh, modern identity that connects beautifully with our customers.&quot;
               </p>
