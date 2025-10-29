@@ -14,7 +14,7 @@ function MobileWarningPopup({ onClose }: { onClose: () => void }) {
       left: 0,
       width: '100%',
       height: '100%',
-      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: 'white',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -22,16 +22,15 @@ function MobileWarningPopup({ onClose }: { onClose: () => void }) {
       padding: '20px'
     }}>
       <div style={{
-        backgroundColor: '#333',
-        color: 'white',
+        backgroundColor: 'white',
+        color: 'black',
         padding: '20px',
         borderRadius: '8px',
         maxWidth: '90%',
         textAlign: 'center',
-        position: 'relative',
-        boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+        position: 'relative'
       }}>
-        <p style={{ margin: 0, fontSize: '14px' }}>
+        <p style={{ margin: 0, fontSize: '16px' }}>
           This website is specially made for desktop view only, the mobile view of the website is cluttered please change it to desktop view.
         </p>
         <button onClick={onClose} style={{
@@ -40,11 +39,11 @@ function MobileWarningPopup({ onClose }: { onClose: () => void }) {
           right: '5px',
           background: 'none',
           border: 'none',
-          color: 'white',
+          color: 'black',
           cursor: 'pointer',
           padding: '5px'
         }}>
-          <X size={20} />
+          <X size={24} />
         </button>
       </div>
     </div>
@@ -69,22 +68,26 @@ export default function RootLayout({
   }, []);
 
   React.useEffect(() => {
-    const warningSeen = sessionStorage.getItem('mobileWarningSeen');
-    if (isMobile && !warningSeen) {
-      setShowMobileWarning(true);
+    if (typeof window !== 'undefined') {
+      const warningSeen = sessionStorage.getItem('mobileWarningSeen');
+      if (isMobile && !warningSeen) {
+        setShowMobileWarning(true);
 
-      const warningTimer = setTimeout(() => {
-        setShowMobileWarning(false);
-        sessionStorage.setItem('mobileWarningSeen', 'true');
-      }, 3000);
+        const warningTimer = setTimeout(() => {
+          setShowMobileWarning(false);
+          sessionStorage.setItem('mobileWarningSeen', 'true');
+        }, 3000);
 
-      return () => clearTimeout(warningTimer);
+        return () => clearTimeout(warningTimer);
+      }
     }
   }, [isMobile]);
 
   const handleCloseWarning = () => {
     setShowMobileWarning(false);
-    sessionStorage.setItem('mobileWarningSeen', 'true');
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('mobileWarningSeen', 'true');
+    }
   };
 
   return (
