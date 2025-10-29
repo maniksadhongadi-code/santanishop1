@@ -52,6 +52,11 @@ export default function ContactPage() {
           </div>
           <button type="submit" className="btn btn-primary" style={{alignSelf: 'flex-start'}}>Send Message</button>
         </form>
+        <div style={{ marginTop: '30px' }}>
+          <Link href="/" style={{ textDecoration: 'none', color: 'var(--accent)', fontWeight: 'bold' }}>
+            &larr; Back to Home
+          </Link>
+        </div>
       </main>
       <a 
         href="https://wa.me/9845634775" 
